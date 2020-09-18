@@ -1,0 +1,17 @@
+{
+  "name": "php_oe29_films",
+  "description": "",
+  "main": "",
+  "authors": [
+    "MinhQuang <minhquang31011998@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/minhquang31011998/php_oe29_films",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
