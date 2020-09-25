@@ -11,4 +11,4 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.styles('resources/assets/css/frontend.css', 'public/assets/css/frontend.css');
+mix.styles('resources/assets/backend/css/film.css', 'public/build/backend/css/film.css');

@@ -19,4 +19,7 @@ return [
     'contact_phone' => '+84368695921',
     'scr_ytb_default' => 'https://www.youtube.com/embed/',
     'user_created_by' => 'Minh Quang',
+    'icon_favicon'  => 'bower_components/bower_film/backend/icon/favicon-32x32.png',
+    'logo'  => 'bower_components/bower_film/backend/img/logo.svg',
+    'logo_png' => 'bower_components/bower_film/img/LOGO.png',
 ];
