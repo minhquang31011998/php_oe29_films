@@ -13,5 +13,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bower_film": "https://github.com/minhquang31011998/bower_film.git"
+  }
 }
