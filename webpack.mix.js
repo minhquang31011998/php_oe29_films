@@ -15,3 +15,5 @@ mix.styles('resources/assets/backend/css/film.css', 'public/build/backend/css/fi
 mix.styles('resources/assets/backend/css/movie.css', 'public/build/backend/css/movie.css');
 mix.js('resources/assets/backend/js/movie.js', 'public/build/backend/js/movie.js');
 mix.js('resources/assets/backend/js/crudmovie.js', 'public/build/backend/js/crudmovie.js');
+mix.js('resources/assets/backend/js/video.js', 'public/build/backend/js/video.js');
+mix.js('resources/assets/backend/js/crudvideo.js', 'public/build/backend/js/crudvideo.js');
