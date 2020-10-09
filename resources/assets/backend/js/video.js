@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     function css() {
         $('#videos-table_length').addClass('main__table-text');
         $('#videos-table_paginate').addClass('paginator');
@@ -9,12 +9,12 @@ $(document).ready(function() {
             processing: true,
             serverSide: true,
             searching: false,
-            destroy:true,
+            destroy: true,
             ajax: {
-                "url"  : '/admin/video/data',
-                "data" : {
-                    "title" : title,
-                    "sort" : sort,
+                "url" : '/admin/video/data',
+                "data": {
+                    "title": title,
+                    "sort": sort,
                 },
             },
             columns: [
@@ -29,17 +29,17 @@ $(document).ready(function() {
 
     dataTable();
 
-    $('.filter__item-menu li').on('click', function(e) {
+    $('.filter__item-menu li').on('click', function (e) {
         e.preventDefault();
         var sort = $('.filter__item-btn input').val();
         var title = $('#filter').val();
 
-        $('body').append('<p>'+sort+'</p>');
+        $('body').append('<p>' + sort + '</p>');
         $.ajax({
             url: '/admin/video/data',
             data: {
-                sort : sort,
-                title : title,
+                sort: sort,
+                title: title,
             },
             success: function (response) {
                 dataTable(title, sort);
@@ -55,8 +55,8 @@ $(document).ready(function() {
         $.ajax({
             url: '/admin/video/data',
             data: {
-                sort : sort,
-                title : title,
+                sort: sort,
+                title: title,
             },
             success: function (response) {
                 dataTable(title, sort);
@@ -67,8 +67,8 @@ $(document).ready(function() {
         })
     }
 
-    $('#filter').on('change',function(e){
+    $('#filter').on('change',function (e) {
         e.preventDefault();
-        window.setTimeout( search, 200 );
+        window.setTimeout(search, 200);
     })
 })
