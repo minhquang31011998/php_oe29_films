@@ -3,7 +3,18 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Video;
+use App\Models\Source;
+use App\Models\Channel;
+use App\Models\Playlist;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
+use App\Http\Requests\VideoRequest;
 
 class VideoController extends Controller
 {
@@ -90,6 +101,15 @@ class VideoController extends Controller
         } else {
             $video->slug = $oldMovie->slug . '-' . Str::random(3);
         }
+        $video->chap = $request->get('chap');
+        $video->playlist_id = $request->get('playlist_id');
+        if ($video->playlist_id != null && $request->has('chap')) {
+            $playlistVideos = Playlist::findOrFail($video->playlist_id)
+                ->videos()
+                ->get()
+                ->sortBy('chap');
+            $this->sortChap($request->get('chap'), $playlistVideos);
+        }
         $video->save();
 
         $this->storeSource($request->get('channel_id'), $request->get('source_key'), $video);
@@ -165,7 +185,7 @@ class VideoController extends Controller
         }
     }
 
-    public function update(VideoUpdateRequest $request, $videoId)
+    public function update(VideoRequest $request, $videoId)
     {
         try {
             $video = Video::findOrFail($videoId);
@@ -230,12 +250,15 @@ class VideoController extends Controller
 
     public function detach($videoId)
     {
-        $video = Video::findOrFail($videoId);
-        $video->playlist_id = null;
-        $video->movie_id = null;
-        $video->save();
-
-        return redirect()->back();
+        try {
+            $video = Video::findOrFail($videoId);
+            $video->playlist_id = null;
+            $video->movie_id = null;
+            $video->save();
+            Session::flash('status', 'new');
+        } catch (ModelNotFoundException $e) {
+            return $e->getMessage();
+        }
     }
 
     public function destroy($videoId)
