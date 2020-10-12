@@ -98,4 +98,64 @@ class ChannelController extends Controller
 
         return redirect()->route('backend.channel.index');
     }
+
+    public function edit($channelId)
+    {
+        try {
+            $channel = Channel::findOrFail($channelId);
+            $channelTypes = Option::where('name', '=', 'channel_type')
+                ->first()
+                ->optionValues()
+                ->get();
+
+            return view('backend.channels.edit')->with([
+                'channelTypes' => $channelTypes->toArray(),
+                'channel' => $channel->toArray(),
+            ]);
+        } catch (ModelNotFoundException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function update(ChannelRequest $request, $channelId)
+    {
+        try {
+            $channel = Channel::findOrFail($channelId);
+            $channel->title = $request->get('title');
+            $channel->link = $request->get('link');
+            $channel->description = $request->get('description');
+            $channel->channel_type = $request->get('channel_type');
+            $channel->user_id = 1;
+            $channel->save();
+
+            return redirect()->route('backend.channel.index');
+        } catch (ModelNotFoundException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function changeStatus($channelId)
+    {
+        try {
+            $channel = Channel::findOrFail($channelId);
+            if ($channel->status == config('config.status_active')) {
+                $channel->status = config('config.status_hidden');
+            } else {
+                $channel->status = config('config.status_active');
+            }
+            $channel->user_id = 1;
+            $channel->save();
+
+            return $channel;
+        } catch (ModelNotFoundException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function destroy($channelId)
+    {
+        $channel = Channel::destroy($channelId);
+
+        return redirect()->route('backend.channel.index');
+    }
 }
