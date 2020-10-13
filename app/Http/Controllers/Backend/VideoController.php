@@ -27,8 +27,8 @@ class VideoController extends Controller
 
     public function getData(Request $request)
     {
-        $videos = Video::select('id', 'title', 'status', 'created_at');
-
+        $videos = Video::select('id', 'title', 'status', 'created_at')
+            ->orderByRaw('created_at DESC');
         if ($request->has('title')) {
             $videos = $videos->where('title', 'like', "%" . $request->get('title') . "%");
         }
@@ -101,14 +101,18 @@ class VideoController extends Controller
         } else {
             $video->slug = $oldMovie->slug . '-' . Str::random(3);
         }
-        $video->chap = $request->get('chap');
-        $video->playlist_id = $request->get('playlist_id');
-        if ($video->playlist_id != null && $request->has('chap')) {
-            $playlistVideos = Playlist::findOrFail($video->playlist_id)
-                ->videos()
-                ->get()
-                ->sortBy('chap');
-            $this->sortChap($request->get('chap'), $playlistVideos);
+        if ($request->get('chap') != null) {
+            $video->chap = $request->get('chap');
+            $video->playlist_id = $request->get('playlist_id');
+            if ($video->playlist_id != null && $request->has('chap')) {
+                $playlistVideos = Playlist::findOrFail($video->playlist_id)
+                    ->videos()
+                    ->get()
+                    ->sortBy('chap');
+                $this->sortChap($request->get('chap'), $playlistVideos);
+            }
+        } else {
+            $video->chap = config('config.default_chap');
         }
         $video->save();
 
@@ -203,12 +207,6 @@ class VideoController extends Controller
                 $this->sortChap($request->get('chap'), $playlistVideos);
             }
             $video->user_id = 1;
-            $oldVideo = Video::where('slug', $video->slug)->first();
-            if ($oldVideo == null) {
-                $video->slug = Str::slug($request->get('title'));
-            } else {
-                $video->slug = $oldVideo->slug . '-' . Str::random(3);
-            }
             $video->save();
 
             Session::flash('status', 'new');
@@ -256,6 +254,10 @@ class VideoController extends Controller
             $video->movie_id = null;
             $video->save();
             Session::flash('status', 'new');
+
+            if (session()->has('previousList')) {
+                return redirect(session('previousList'));
+            }
         } catch (ModelNotFoundException $e) {
             return $e->getMessage();
         }

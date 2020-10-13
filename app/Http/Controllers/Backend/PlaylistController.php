@@ -20,6 +20,8 @@ class PlaylistController extends Controller
 {
     public function index()
     {
+        session(['previousList' => request()->url()]);
+
         return view('backend.playlists.index');
     }
 
@@ -94,9 +96,10 @@ class PlaylistController extends Controller
                     ->playlists()
                     ->get()
                     ->sortBy('order');
+                $i = $playlist->order;
                 foreach ($moviePlaylists as $moviePlaylist) {
                     if ($moviePlaylist->order >= $playlist->order) {
-                        $moviePlaylist->order++;
+                        $moviePlaylist->order = ++$i;
                         $moviePlaylist->save();
                     }
                 }
@@ -234,8 +237,9 @@ class PlaylistController extends Controller
                     'playlist'  => $playlist,
                 ]);
             }
+            Session::flash('status', 'new');
 
-            return redirect()->route('backend.playlist.index');
+            return redirect(session('previousList'));
         } catch (ModelNotFoundException $e) {
             return $e->getMessage();
         }
