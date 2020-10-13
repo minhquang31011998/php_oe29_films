@@ -94,7 +94,7 @@ class VideoController extends Controller
         $video->title = $request->get('title');
         $video->tags = $request->get('tags');
         $video->description = $request->get('description');
-        $video->user_id = 1;
+        $video->user_id = Auth::user()->id;
         $oldVideo = Video::where('slug', $video->slug)->first();
         if ($oldVideo == null) {
             $video->slug = Str::slug($request->get('title'));
@@ -127,7 +127,7 @@ class VideoController extends Controller
         $source->video_id = $video->id;
         $source->prioritize = config('config.default_prioritize');
         $source->channel_id = $channel;
-        $source->user_id = 1;
+        $source->user_id = Auth::user()->id;
         $source->source_key = $sourceKey;
         $source->save();
     }
@@ -206,7 +206,7 @@ class VideoController extends Controller
                     ->sortBy('chap');
                 $this->sortChap($request->get('chap'), $playlistVideos);
             }
-            $video->user_id = 1;
+            $video->user_id = Auth::user()->id;
             $video->save();
 
             Session::flash('status', 'new');
@@ -237,7 +237,7 @@ class VideoController extends Controller
             } else {
                 $video->status = config('config.status_active');
             }
-            $video->user_id = 1;
+            $video->user_id = Auth::user()->id;
             $video->save();
 
             return $video;

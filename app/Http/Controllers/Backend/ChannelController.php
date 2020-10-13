@@ -93,7 +93,7 @@ class ChannelController extends Controller
         $channel->description = $request->get('description');
         $channel->channel_type = $request->get('channel_type');
         $channel->status = config('config.status_active');
-        $channel->user_id = 1;
+        $channel->user_id = Auth::user()->id;
         $channel->save();
 
         return redirect()->route('backend.channel.index');
@@ -125,7 +125,7 @@ class ChannelController extends Controller
             $channel->link = $request->get('link');
             $channel->description = $request->get('description');
             $channel->channel_type = $request->get('channel_type');
-            $channel->user_id = 1;
+            $channel->user_id = Auth::user()->id;
             $channel->save();
 
             return redirect()->route('backend.channel.index');
@@ -143,7 +143,7 @@ class ChannelController extends Controller
             } else {
                 $channel->status = config('config.status_active');
             }
-            $channel->user_id = 1;
+            $channel->user_id = Auth::user()->id;
             $channel->save();
 
             return $channel;
