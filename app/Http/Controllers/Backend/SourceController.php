@@ -24,7 +24,7 @@ class SourceController extends Controller
             $source = new Source();
             $source->video_id = $request->get('video_id');
             $source->channel_id = $request->get('channel_id');
-            $source->user_id = 1;
+            $source->user_id = Auth::user()->id;
             $source->source_key = $request->get('source_key');
             $videoSources = Video::findOrFail($source->video_id)
                 ->sources()
@@ -79,7 +79,7 @@ class SourceController extends Controller
 
             $source = Source::findOrFail($request->get('source_id'));
             $source->channel_id = $request->get('channel_id');
-            $source->user_id = 1;
+            $source->user_id = Auth::user()->id;
             $source->source_key = $request->get('source_key');
             $video = Video::findOrFail($source->video_id);
             $videoSources = $video

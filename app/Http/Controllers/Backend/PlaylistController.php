@@ -104,7 +104,7 @@ class PlaylistController extends Controller
                     }
                 }
             }
-            $playlist->user_id = 1;
+            $playlist->user_id = Auth::user()->id;
             $playlist->save();
 
             return redirect()->route('backend.playlist.edit', $playlist->id);
@@ -229,7 +229,7 @@ class PlaylistController extends Controller
                     }
                 }
             }
-            $playlist->user_id = 1;
+            $playlist->user_id = Auth::user()->id;
             $playlist->save();
             if ($request->has('movie_id')) {
                 return response()->json([
@@ -309,7 +309,7 @@ class PlaylistController extends Controller
             } else {
                 $playlist->status = config('config.status_active');
             }
-            $playlist->user_id = 1;
+            $playlist->user_id = Auth::user()->id;
             $playlist->save();
 
             return $playlist;

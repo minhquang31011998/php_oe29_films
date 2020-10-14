@@ -148,7 +148,7 @@ class MovieController extends Controller
             $movie->quality = $request->get('quality');
             $movie->country = $request->get('country');
             $movie->card_cover = '';
-            $movie->user_id = 1;
+            $movie->user_id = Auth::user()->id;
 
             if ($request->hasFile('card_cover')) {
                 $movie->card_cover = $this->storeImages($request->file('card_cover'), $movie);
@@ -381,7 +381,7 @@ class MovieController extends Controller
             $movie->release_year = $request->get('release_year');
             $movie->quality = $request->get('quality');
             $movie->country = $request->get('country');
-            $movie->user_id = 1;
+            $movie->user_id = Auth::user()->id;
 
             if ($request->hasFile('card_cover')) {
                 $movie->card_cover = $this->updateImage($request->file('card_cover'), $movie);
@@ -433,7 +433,7 @@ class MovieController extends Controller
                     $moviePlaylist->save();
                 }
             }
-            $playlist->user_id = 1;
+            $playlist->user_id = Auth::user()->id;
             $playlist->save();
         } catch (ModelNotFoundException $e) {
             return $e->getMessage();
@@ -445,7 +445,7 @@ class MovieController extends Controller
         try {
             $video = Video::findOrFail($request->get('videoId'));
             $video->movie_id = $movieId;
-            $video->user_id = 1;
+            $video->user_id = Auth::user()->id;
             $video->save();
             Session::flash('status', 'new');
         } catch (ModelNotFoundException $e) {
