@@ -69,7 +69,7 @@
                 <!-- player -->
                 <div class="col-12">
                     <div class="video_player">
-                        @if ($channel['channel_type'] == 1)
+                        @if ($channel['channel_type'] == config('config.default_server'))
                             <iframe width="1110" height="630" src="{{ config('config.scr_ytb_default') . $source['source_key'] }}" frameborder="0"
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen></iframe>
@@ -87,7 +87,7 @@
                     <div class="backup_title"><span>{{ trans('backup_link')}}:</span></div>
                     @foreach ($backups as $backup)
                         <span @if ($backup['prioritize'] == $source['prioritize']) hidden @endif>
-                            <a href="{{ route('frontend.watchMovie', [$movie['slug'], $backup['id'], $backup['prioritize']]) }}" class="btn">#{{ $backup['title'] . '_' . $backup['prioritize'] }}</a>
+                            <a href="{{ route('frontend.watchMovie', [$movie['slug'], $backup['prioritize']]) }}" class="btn">#{{ $backup['title'] . '_' . $backup['prioritize'] }}</a>
                         </span>
                     @endforeach
                     </div>
@@ -98,6 +98,25 @@
                     @endforeach
                 </div>
                 <!-- end player -->
+                @if (auth()->check())
+                    <div class="stars">
+                        <form action="" method="post" id="rate_form">
+                            @csrf
+                            <input class="star star-5" id="star-5" type="radio" name="star" value="5"/>
+                            <label class="star star-5" for="star-5"></label>
+                            <input class="star star-4" id="star-4" type="radio" name="star" value="4"/>
+                            <label class="star star-4" for="star-4"></label>
+                            <input class="star star-3" id="star-3" type="radio" name="star" value="3"/>
+                            <label class="star star-3" for="star-3"></label>
+                            <input class="star star-2" id="star-2" type="radio" name="star" value="2"/>
+                            <label class="star star-2" for="star-2"></label>
+                            <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
+                            <label class="star star-1" for="star-1"></label>
+                            <input type="hidden" name="movie_id" id="movie_id" value="{{ $movie['id'] }}">
+                            <button type="submit" name="submit" class="form__btn">{{ trans('rate') }}</button>
+                        </form>
+                    </div>
+                @endif
             </div>
         </div>
         <!-- end details content -->
