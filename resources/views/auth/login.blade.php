@@ -18,11 +18,11 @@
         @enderror
 
         <div class="sign__group">
-            <input type="email" class="sign__input" name="email" placeholder="{{ trans('email') }}" value="{{ old('email') }}">
+            <input id="email" type="email" class="sign__input" name="email" placeholder="{{ trans('email') }}" value="{{ old('email') }}">
         </div>
 
         <div class="sign__group">
-            <input type="password" class="sign__input" name="password" placeholder="{{ trans('password') }}">
+            <input id="password" type="password" class="sign__input" name="password" placeholder="{{ trans('password') }}">
         </div>
 
         <div class="sign__group sign__group--checkbox">
@@ -30,7 +30,7 @@
             <label for="remember">{{ trans('remember_me') }}</label>
         </div>
 
-        <button class="sign__btn" type="submit">{{ trans('sign_in') }}</button>
-        <span class="sign__text">{{ trans('no_account') }} <a href="{{ route('register') }}">{{ trans('sign_up') }}!</a></span>
+        <button id="login-btn" class="sign__btn" type="submit">{{ trans('sign_in') }}</button>
+        <span class="sign__text">{{ trans('no_account') }} <a id="sign-up" href="{{ route('register') }}">{{ trans('sign_up') }}!</a></span>
     </form>
 @endsection
