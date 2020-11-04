@@ -37,15 +37,13 @@ class RateController extends Controller
     {
         $movie = $this->rate->findMovie($id);
         $movieRates = $this->rate->findMovieRate($id);
-        if ($movieRates != null) {
-            $sumRate = null;
-            foreach ($movieRates as $movieRate) {
-                $sumRate += $movieRate->point;
-            }
-            $movie->rate = number_format($sumRate / count($movieRates), config('config.number_after_float'));
-            $this->rate->updateMovie($id, $movie->rate);
+        $sumRate = null;
+        foreach ($movieRates as $movieRate) {
+            $sumRate += $movieRate->point;
         }
+        $movie->rate = number_format($sumRate / count($movieRates), config('config.number_after_float'));
+        $result = $this->rate->updateMovie($id, $movie->rate);
 
-        return true;
+        return $result;
     }
 }
