@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Models\Channel;
-use App\Models\Option;
-use App\Models\OptionValue;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Validator;
 use Yajra\Datatables\Datatables;
 use App\Http\Requests\ChannelRequest;
+use App\Repositories\Channel\ChannelRepositoryInterface;
 
 class ChannelController extends Controller
 {
+    protected $channel;
+
+    public function __construct(ChannelRepositoryInterface $channel)
+    {
+        $this->channel = $channel;
+    }
+
     public function index()
     {
         return view('backend.channels.index');
@@ -22,28 +26,15 @@ class ChannelController extends Controller
 
     public function getData(Request $request)
     {
-        $channels = Channel::select('id', 'title', 'status', 'created_at');
-        if ($request->has('title')) {
-            $channels = $channels->where('title', 'like', "%" . $request->get('title') . "%");
-        }
-        if ($request->has('sort')) {
-            if ($request->get('sort') == trans('title')) {
-                $channels = $channels->orderByRaw('title ASC');
-            } elseif ($request->get('sort') == trans('active')) {
-                $channels = $channels->where('status', '=', config('config.status_active'));
-            } elseif ($request->get('sort') == trans('hidden')) {
-                $channels = $channels->where('status', '=', config('config.status_hidden'));
-            }
-        }
+        $data = $request->all();
+        $channels = $this->channel->getChannels($data);
 
-        $channels = $channels->orderByRaw('created_at DESC');
-
-        return DataTables::of($channels->get()->toArray())
+        return DataTables::of($channels->toArray())
             ->editColumn('id', function ($channel) {
-                return '<div class="main__table-text">'. $channel['id'] .'</div>';
+                return '<div class="main__table-text">' . $channel['id'] . '</div>';
             })
             ->editColumn('title', function ($channel) {
-                return '<div class="main__table-text">'. $channel['title'] .'</div>';
+                return '<div class="main__table-text">' . $channel['title'] . '</div>';
             })
             ->editColumn('status', function ($channel) {
                 if ($channel['status'] == config('config.status_active')) {
@@ -52,33 +43,21 @@ class ChannelController extends Controller
                     return '<div class="main__table-text main__table-text--red">' . trans('hidden') . '</div>';
                 }
             })
-
             ->addColumn('action', function ($channel) {
                 return
-                '<div class="main__table-btns">
-                    <a href="' . route('backend.channel.edit', $channel['id']) . '" class="main__table-btn main__table-btn--edit open-modal" data-toggle="tooltip" title="Edit">
-                        <i class="icon ion-ios-create"></i>
-                    </a>
-                    <form action="' . route('backend.channel.destroy', $channel['id']) . '" method="POST">
-                        ' . csrf_field() . '
-                        ' . method_field('DELETE') . '
-                        <button type="submit" class="main__table-btn main__table-btn--delete" data-toggle="tooltip" title="Delete">
-                            <i class="icon ion-ios-trash"></i>
-                        </button>
-                    </form>
-                </div>';
+                    '<div class="main__table-btns">
+                        <a href="' . route('backend.channel.edit', $channel['id']) . '" class="main__table-btn main__table-btn--edit open-modal" data-toggle="tooltip" title="Edit">
+                            <i class="icon ion-ios-create"></i>
+                        </a>
+                    </div>';
             })
             ->rawColumns(['id', 'title', 'status', 'action'])
-
             ->make(true);
     }
 
     public function create()
     {
-        $channelTypes = Option::where('name', '=', 'channel_type')
-            ->first()
-            ->optionValues()
-            ->get();
+        $channelTypes = $this->channel->getChannelTypes();
 
         return view('backend.channels.create')->with([
             'channelTypes' => $channelTypes->toArray(),
@@ -87,74 +66,47 @@ class ChannelController extends Controller
 
     public function store(ChannelRequest $request)
     {
-        $channel = new Channel();
-        $channel->title = $request->get('title');
-        $channel->link = $request->get('link');
-        $channel->description = $request->get('description');
-        $channel->channel_type = $request->get('channel_type');
-        $channel->status = config('config.status_active');
-        $channel->user_id = Auth::user()->id;
-        $channel->save();
+        $data = $request->all();
+        $data['status'] = config('config.status_active');
+        $data['user_id'] = Auth::user()->id;
+        $this->channel->create($data);
+
+        alert()->success(trans('created'), trans('success'));
 
         return redirect()->route('backend.channel.index');
     }
 
     public function edit($channelId)
     {
-        try {
-            $channel = Channel::findOrFail($channelId);
-            $channelTypes = Option::where('name', '=', 'channel_type')
-                ->first()
-                ->optionValues()
-                ->get();
+        $channel = $this->channel->find($channelId);
+        $channelTypes = $this->channel->getChannelTypes();
 
-            return view('backend.channels.edit')->with([
-                'channelTypes' => $channelTypes->toArray(),
-                'channel' => $channel->toArray(),
-            ]);
-        } catch (ModelNotFoundException $e) {
-            return $e->getMessage();
-        }
+        return view('backend.channels.edit')->with([
+            'channelTypes' => $channelTypes->toArray(),
+            'channel' => $channel->toArray(),
+        ]);
     }
 
     public function update(ChannelRequest $request, $channelId)
     {
-        try {
-            $channel = Channel::findOrFail($channelId);
-            $channel->title = $request->get('title');
-            $channel->link = $request->get('link');
-            $channel->description = $request->get('description');
-            $channel->channel_type = $request->get('channel_type');
-            $channel->user_id = Auth::user()->id;
-            $channel->save();
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        $this->channel->update($channelId, $data);
 
-            return redirect()->route('backend.channel.index');
-        } catch (ModelNotFoundException $e) {
-            return $e->getMessage();
-        }
+        alert()->success(trans('updated'), trans('success'));
+
+        return redirect()->route('backend.channel.index');
     }
 
     public function changeStatus($channelId)
     {
-        try {
-            $channel = Channel::findOrFail($channelId);
-            if ($channel->status == config('config.status_active')) {
-                $channel->status = config('config.status_hidden');
-            } else {
-                $channel->status = config('config.status_active');
-            }
-            $channel->user_id = Auth::user()->id;
-            $channel->save();
-
-            return $channel;
-        } catch (ModelNotFoundException $e) {
-            return $e->getMessage();
-        }
+        return $this->channel->changeStatus($channelId);
     }
 
     public function destroy($channelId)
     {
-        $channel = Channel::destroy($channelId);
+        $this->channel->delete($channelId);
+        alert()->success(trans('deleted'), trans('success'));
 
         return redirect()->route('backend.channel.index');
     }

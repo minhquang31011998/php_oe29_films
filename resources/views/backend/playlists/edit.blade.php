@@ -75,7 +75,7 @@
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade @if (\session('status') != 'new') active show @endif" id="tab-1" role="tabpanel" aria-labelledby="1-tab">
             <div class="col-12">
-                <form action="{{ route('backend.playlist.update', $playlist['id']) }}" class="form" enctype="multipart/form-data" method="POST">
+                <form action="{{ route('backend.video.store') }}" class="form" enctype="multipart/form-data" method="POST">
                     @csrf
                     @method('PUT')
                     @if (Session::has('movieId'))
