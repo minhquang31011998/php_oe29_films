@@ -28,6 +28,7 @@ class ChannelTest extends TestCase
             'title',
             'link',
             'description',
+            'channel_type',
             'status',
             'user_id',
         ], $this->channel->getFillable());

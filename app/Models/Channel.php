@@ -13,6 +13,7 @@ class Channel extends Model
         'title',
         'link',
         'description',
+        'channel_type',
         'status',
         'user_id',
     ];

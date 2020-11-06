@@ -335,7 +335,7 @@
 
 @section('modal')
     <div id="modal-form" class="zoom-anim-dialog mfp-hide modal">
-        <form action="{{ route('backend.movie.addVideo', $movie['id']) }}" enctype="multipart/form-data" method="POST" id="frmCreateVideo">
+        <form action="{{ route('backend.movie.updateVideo', $movie['id']) }}" enctype="multipart/form-data" method="POST" id="frmCreateVideo">
             <meta name="csrf-token" content="{{ csrf_token() }}"/>
             <h6 class="modal__title">{{ trans('add_video') }}</h6>
             <div class="form">

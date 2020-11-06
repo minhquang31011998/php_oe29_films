@@ -2,35 +2,17 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Models\Movie;
-use App\Models\Tag;
-use App\Models\Type;
-use App\Models\Video;
-use App\Models\Source;
-use App\Models\Channel;
-use App\Models\Playlist;
-use App\Models\Option;
-use App\Models\OptionValue;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use App\Http\Requests\MovieRequest;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\Repositories\Movie\MovieRepositoryInterface;
 
 class MovieController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
     public function index()
     {
         return view('backend.movies.index');
@@ -38,28 +20,12 @@ class MovieController extends Controller
 
     public function getData(Request $request)
     {
-        $movies = Movie::select('id', 'name', 'nominations', 'slug', 'created_at');
+        $data = $request->all();
+        $movies = $this->movie->getMovies($data);
 
-        if ($request->has('name')) {
-            $movies = $movies->where('name', 'like', "%" . $request->get('name') . "%");
-        }
-
-        if ($request->has('sort')) {
-            if ($request->get('sort') == trans('name')) {
-                $movies = $movies->orderByRaw('name ASC');
-            } elseif ($request->get('sort') == trans('release_year')) {
-                $movies = $movies->orderByRaw('release_year DESC');
-            } elseif ($request->get('sort') == trans('rate')) {
-                $movies = $movies->orderByRaw('rate DESC');
-            } elseif ($request->get('sort') == trans('nomination')) {
-                $movies = $movies->orderByRaw('nominations DESC');
-            }
-        }
-        $movies = $movies->orderByRaw('created_at DESC');
-
-        return DataTables::of($movies->get()->toArray())
+        return DataTables::of($movies->toArray())
             ->editColumn('id', function ($movie) {
-                return '<div class="main__table-text">' . $movie['id'] . '</div>';
+                return '<div class="main__table-text">' . $movie['index'] . '</div>';
             })
             ->editColumn('name', function ($movie) {
                 return '<div class="main__table-text">' . $movie['name'] . '</div>';
@@ -81,13 +47,6 @@ class MovieController extends Controller
                         <a href="' . route('backend.movie.edit', $movie['id']) . '" class="main__table-btn main__table-btn--edit open-modal" data-toggle="tooltip" title="Edit">
                             <i class="icon ion-ios-create"></i>
                         </a>
-                        <form action="' . route('backend.movie.destroy', $movie['id']) . '" method="POST">
-                            ' . csrf_field() . '
-                            ' . method_field('DELETE') . '
-                            <button type="submit" class="main__table-btn main__table-btn--delete" data-toggle="tooltip" title="Delete">
-                                <i class="icon ion-ios-trash"></i>
-                            </button>
-                        </form>
                     </div>';
             })
             ->rawColumns(['id', 'name', 'slug', 'action'])
@@ -96,26 +55,15 @@ class MovieController extends Controller
 
     public function nominations($id)
     {
-        try {
-            $movie = Movie::findOrFail($id);
-            if ($movie->nominations == config('config.nomination_on')) {
-                $movie->nominations = config('config.nomination_off');
-            }
-            $movie->nominations = config('config.nomination_on');
-            $movie->save();
-
-            return $movie;
-        } catch (ModelNotFoundException $e) {
-            return $e->getMessage();
-        }
+        return $movies = $this->movie->changeNomination($id);
     }
 
     public function create()
     {
-        $qualities = $this->getOptionValue('quality');
-        $genres = $this->getOptionValue('genre');
-        $countries = $this->getOptionValue('country');
-        $types = Type::get();
+        $qualities = $this->movie->getOptionValue('quality');
+        $genres = $this->movie->getOptionValue('genre');
+        $countries = $this->movie->getOptionValue('country');
+        $types = $this->movie->getTypes();
 
         return view('backend.movies.create')->with([
             'qualities' => $qualities->toArray(),
@@ -135,48 +83,11 @@ class MovieController extends Controller
 
     public function store(MovieRequest $request)
     {
-        DB::beginTransaction();
-        try {
-            $movie = new Movie();
-            $movie->description = $request->get('description');
-            $movie->name = $request->get('name');
-            $movie->name_origin = $request->get('name_origin');
-            $movie->age = $request->get('age');
-            $movie->genre = $request->get('genre');
-            $movie->runtime = $request->get('runtime');
-            $movie->release_year = $request->get('release_year');
-            $movie->quality = $request->get('quality');
-            $movie->country = $request->get('country');
-            $movie->card_cover = '';
-            $movie->user_id = Auth::user()->id;
+        $movie = $this->movie->storeMovie($request);
+        $request->session()->flash('status', 'new');
+        alert()->success(trans('created'), trans('step'));
 
-            if ($request->hasFile('card_cover')) {
-                $movie->card_cover = $this->storeImages($request->file('card_cover'), $movie);
-            }
-            $movie->slug = Str::slug($request->get('name'));
-            $oldMovie = Movie::where('slug', $movie->slug)->first();
-
-            if ($oldMovie == null) {
-                $movie->slug = Str::slug($request->get('name'));
-            } else {
-                $movie->slug = $oldMovie->slug . '-' . Str::random(3);
-            }
-            $movie->save();
-
-            $types = $request->get('types');
-            $movie->types()->attach($types);
-
-            $this->storeTags($request->get('tags'), $movie);
-
-            DB::commit();
-            $request->session()->flash('status', trans('create_success'));
-
-            return redirect()->route('backend.movie.edit', $movie->id);
-        } catch (Exception $e) {
-            DB::rollback();
-
-            return redirect()->back();
-        }
+        return redirect()->route('backend.movie.edit', $movie->id);
     }
 
     public function storeTags($tags, $movie)
@@ -208,25 +119,14 @@ class MovieController extends Controller
 
     public function getTags(Request $request)
     {
-        $tags = Tag::get();
-        return $tags->toArray();
+        return $tags = $this->movie->getTags()->toArray();
     }
 
     public function getMoviePlaylists(Request $request, $movieId)
     {
-        $playlists = Playlist::select('id', 'title', 'order', 'description', 'movie_id')
-            ->orderByRaw('playlists.order ASC')
-            ->where('movie_id', '=', $movieId);
+        $data = $request->all();
 
-        if ($request->has('title')) {
-            $playlists = $playlists->where('title', 'like', "%" . $request->get('title') . "%");
-        }
-
-        $playlists = $playlists->get();
-
-        foreach ($playlists as $index => $playlist) {
-            $playlist->index = $index + 1;
-        }
+        $playlists = $this->movie->getMoviePlaylists($movieId, $data);
 
         return DataTables::of($playlists->toArray())
             ->addColumn('action', function ($playlist) {
@@ -261,19 +161,9 @@ class MovieController extends Controller
 
     public function getPlaylists(Request $request)
     {
-        $playlists = Playlist::select('id', 'title', 'order', 'description')
-            ->orderByRaw('playlists.order ASC')
-            ->where('movie_id', '=', null);
+        $data = $request->all();
 
-        if ($request->has('title')) {
-            $playlists = $playlists->where('title', 'like', "%" . $request->get('title') . "%");
-        }
-
-        $playlists = $playlists->get();
-
-        foreach ($playlists as $index => $playlist) {
-            $playlist->index = $index + 1;
-        }
+        $playlists = $this->movie->getPlaylists($data);
 
         return DataTables::of($playlists->toArray())
             ->addColumn('action', function ($playlist) {
@@ -297,18 +187,9 @@ class MovieController extends Controller
 
     public function getVideos(Request $request)
     {
-        $videos = Video::select('id', 'title', 'description')
-            ->where('movie_id', '=', null);
+        $data = $request->all();
 
-        if ($request->has('title')) {
-            $videos = $videos->where('title', 'like', "%" . $request->get('title') . "%");
-        }
-
-        $videos = $videos->get();
-
-        foreach ($videos as $index => $video) {
-            $video->index = $index + 1;
-        }
+        $videos = $this->movie->getVideos($data);
 
         return DataTables::of($videos->toArray())
             ->addColumn('action', function ($video) {
@@ -329,75 +210,46 @@ class MovieController extends Controller
 
     public function edit($movieId)
     {
-        try {
-            $movie = Movie::findOrFail($movieId);
-            $qualities = $this->getOptionValue('quality');
-            $genres = $this->getOptionValue('genre');
-            $countries = $this->getOptionValue('country');
-            $channels = Channel::get();
-            $types = Type::get();
-            $movieTags = $movie->tags()->get();
-            $tag = '';
-            foreach ($movieTags as $movieTag) {
-                $tag .= $movieTag->name . ',';
-            }
-            $movieTags = trim($tag, ',');
-            $movieTypes = $movie
-                ->types()
-                ->get();
-            $videos = Video::where('movie_id', '=', '')
-                ->where('playlist_id', '=', '')
-                ->get();
-            $movieVideos = $movie->videos()->get();
+        $movie = $this->movie->find($movieId);
+        $qualities = $this->movie->getOptionValue('quality');
+        $genres = $this->movie->getOptionValue('genre');
+        $countries = $this->movie->getOptionValue('country');
+        $channels = $this->movie->getChannels();
+        $types = $this->movie->getTypes();
+        $movieTags = $this->movie->getMovieTags($movie);
 
-            session(['previousList' => request()->url()]);
-
-            return view('backend.movies.edit')->with([
-                'movie' => $movie->toArray(),
-                'qualities' => $qualities->toArray(),
-                'genres' => $genres->toArray(),
-                'countries' => $countries->toArray(),
-                'channels' => $channels->toArray(),
-                'types' => $types->toArray(),
-                'movieTags' => $movieTags,
-                'movieTypes' => $movieTypes->toArray(),
-                'videos' => $videos,
-                'movieVideos' => $movieVideos
-            ]);
-        } catch (ModelNotFoundException $e) {
-            return redirect()->route('backend.movie.index')->withErrors(['msg', $e->getMessage()]);
+        $tag = '';
+        foreach ($movieTags as $movieTag) {
+            $tag .= $movieTag->name . ',';
         }
+        $movieTags = trim($tag, ',');
+
+        $movieTypes = $this->movie->getMovieTypes($movie);
+
+        $movieVideos = $this->movie->getMovieVideos($movie);
+
+        session(['previousList' => request()->url()]);
+
+        return view('backend.movies.edit')->with([
+            'movie' => $movie->toArray(),
+            'qualities' => $qualities->toArray(),
+            'genres' => $genres->toArray(),
+            'countries' => $countries->toArray(),
+            'channels' => $channels->toArray(),
+            'types' => $types->toArray(),
+            'movieTags' => $movieTags,
+            'movieTypes' => $movieTypes->toArray(),
+            'movieVideos' => $movieVideos
+        ]);
     }
 
     public function update(Request $request, $movieId)
     {
-        try {
-            $movie = Movie::findOrFail($movieId);
-            $movie->name = $request->get('name');
-            $movie->name_origin = $request->get('name_origin');
-            $movie->description = $request->get('description');
-            $movie->age = $request->get('age');
-            $movie->runtime = $request->get('runtime');
-            $movie->release_year = $request->get('release_year');
-            $movie->quality = $request->get('quality');
-            $movie->country = $request->get('country');
-            $movie->user_id = Auth::user()->id;
+        $movie = $this->movie->updateMovie($movieId, $request);
 
-            if ($request->hasFile('card_cover')) {
-                $movie->card_cover = $this->updateImage($request->file('card_cover'), $movie);
-            }
-            $movie->save();
+        alert()->success(trans('updated'), trans('success'));
 
-            $this->updateTags($request->get('tags'), $movie);
-
-            $movie->types()->detach();
-            $types = $request->get('types');
-            $movie->types()->attach($types);
-
-            return redirect()->route('backend.movie.index');
-        } catch (ModelNotFoundException $e) {
-            return redirect()->route('backend.movie.edit')->withErrors(['msg', $e->getMessage()]);
-        }
+        return redirect()->route('backend.movie.index');
     }
 
     public function updateTags($tags, $movie)
@@ -419,43 +271,21 @@ class MovieController extends Controller
 
     public function updatePlaylist(Request $request, $movieId)
     {
-        try {
-            $moviePlaylists = Movie::findOrFail($movieId)
-                ->playlists()
-                ->get()
-                ->sortBy('order');
-            $playlist = Playlist::findOrFail($request->get('playlistId'));
-            $playlist->movie_id = $movieId;
-            $i = $playlist->order;
-            foreach ($moviePlaylists as $moviePlaylist) {
-                if ($moviePlaylist->order >= $playlist->order) {
-                    $moviePlaylist->order = ++$i;
-                    $moviePlaylist->save();
-                }
-            }
-            $playlist->user_id = Auth::user()->id;
-            $playlist->save();
-        } catch (ModelNotFoundException $e) {
-            return $e->getMessage();
-        }
+        return $this->movie->updatePlaylist($request, $movieId);
     }
 
     public function updateVideo(Request $request, $movieId)
     {
-        try {
-            $video = Video::findOrFail($request->get('videoId'));
-            $video->movie_id = $movieId;
-            $video->user_id = Auth::user()->id;
-            $video->save();
-            Session::flash('status', 'new');
-        } catch (ModelNotFoundException $e) {
-            return $e->getMessage();
-        }
+        Session::flash('status', 'new');
+
+        return $this->movie->updateVideo($request, $movieId);
     }
 
     public function destroy($movieId)
     {
-        Movie::destroy($movieId);
+        $this->movie->deleteMovie($movieId);
+
+        alert()->success(trans('deleted'), trans('success'));
 
         return redirect()->route('backend.movie.index');
     }
