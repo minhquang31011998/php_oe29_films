@@ -11,6 +11,14 @@ use App\Repositories\Movie\MovieRepository;
 use App\Repositories\Movie\MovieRepositoryInterface;
 use App\Repositories\Playlist\PlaylistRepository;
 use App\Repositories\Playlist\PlaylistRepositoryInterface;
+use App\Repositories\Source\SourceRepository;
+use App\Repositories\Source\SourceRepositoryInterface;
+use App\Repositories\Type\TypeRepository;
+use App\Repositories\Type\TypeRepositoryInterface;
+use App\Repositories\User\UserRepository;
+use App\Repositories\User\UserRepositoryInterface;
+use App\Repositories\Video\VideoRepository;
+use App\Repositories\Video\VideoRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -36,6 +44,22 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(
             PlaylistRepositoryInterface::class,
             PlaylistRepository::class
+        );
+        $this->app->singleton(
+            SourceRepositoryInterface::class,
+            SourceRepository::class
+        );
+        $this->app->singleton(
+            TypeRepositoryInterface::class,
+            TypeRepository::class
+        );
+        $this->app->singleton(
+            UserRepositoryInterface::class,
+            UserRepository::class
+        );
+        $this->app->singleton(
+            VideoRepositoryInterface::class,
+            VideoRepository::class
         );
     }
 

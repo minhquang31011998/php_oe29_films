@@ -3,21 +3,21 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Video;
-use App\Models\Source;
-use App\Models\Channel;
-use App\Models\Playlist;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Str;
 use App\Http\Requests\VideoRequest;
+use App\Repositories\Video\VideoRepositoryInterface;
 
 class VideoController extends Controller
 {
+    protected $video;
+
+    public function __construct(VideoRepositoryInterface $video)
+    {
+        $this->video = $video;
+    }
+
     public function index()
     {
         session(['previous-url' => request()->url()]);
@@ -27,27 +27,11 @@ class VideoController extends Controller
 
     public function getData(Request $request)
     {
-        $videos = Video::select('id', 'title', 'status', 'created_at')
-            ->orderByRaw('created_at DESC');
-        if ($request->has('title')) {
-            $videos = $videos->where('title', 'like', "%" . $request->get('title') . "%");
-        }
+        $videos = $this->video->getVideos($request);
 
-        if ($request->has('sort')) {
-            if ($request->get('sort') == trans('title')) {
-                $videos = $videos->orderByRaw('title ASC');
-            } elseif ($request->get('sort') == trans('date_created')) {
-                $videos = $videos->orderByRaw('created_at DESC');
-            } elseif ($request->get('sort') == trans('active')) {
-                $videos = $videos->where('status', '=', config('config.status_active'));
-            } elseif ($request->get('sort') == trans('hidden')) {
-                $videos = $videos->where('status', '=', config('config.status_hidden'));
-            }
-        }
-
-        return DataTables::of($videos->get()->toArray())
+        return DataTables::of($videos->toArray())
             ->editColumn('id', function ($video) {
-                return '<div class="main__table-text">' . $video['id'] . '</div>';
+                return '<div class="main__table-text">' . $video['index'] . '</div>';
             })
             ->editColumn('title', function ($video) {
                 return '<div class="main__table-text">' . $video['title'] . '</div>';
@@ -62,83 +46,21 @@ class VideoController extends Controller
 
             ->addColumn('action', function ($video) {
                 return
-                '<div class="main__table-btns">
-                    <a href="' . route('backend.video.edit', $video['id']) . '" class="main__table-btn main__table-btn--edit open-modal" data-toggle="tooltip" title="' . trans('edit') . '">
-                    <i class="icon ion-ios-create"></i>
-                    </a>
-                    <form action="' . route('backend.video.destroy', $video['id']) . '" method="POST">
-                        ' . csrf_field() . '
-                        ' . method_field('DELETE') . '
-                        <button type="submit" class="main__table-btn main__table-btn--delete">
-                            <i class="icon ion-ios-trash"></i>
-                        </button>
-                    </form>
-                </div>';
+                    '<div class="main__table-btns">
+                        <a href="' . route('backend.video.edit', $video['id']) . '" class="main__table-btn main__table-btn--edit open-modal" data-toggle="tooltip" title="' . trans('edit') . '">
+                        <i class="icon ion-ios-create"></i>
+                        </a>
+                    </div>';
             })
             ->rawColumns(['id', 'title', 'status', 'action'])
             ->make(true);
     }
 
-    public function create()
-    {
-        $channels = Channel::get();
-
-        return view('backend.videos.create')->with([
-            'channels'=>$channels->toArray()
-        ]);
-    }
-
-    public function store(VideoRequest $request)
-    {
-        $video = new Video();
-        $video->title = $request->get('title');
-        $video->tags = $request->get('tags');
-        $video->description = $request->get('description');
-        $video->user_id = Auth::user()->id;
-        $oldVideo = Video::where('slug', $video->slug)->first();
-        if ($oldVideo == null) {
-            $video->slug = Str::slug($request->get('title'));
-        } else {
-            $video->slug = $oldMovie->slug . '-' . Str::random(3);
-        }
-        if ($request->get('chap') != null) {
-            $video->chap = $request->get('chap');
-            $video->playlist_id = $request->get('playlist_id');
-            if ($video->playlist_id != null && $request->has('chap')) {
-                $playlistVideos = Playlist::findOrFail($video->playlist_id)
-                    ->videos()
-                    ->get()
-                    ->sortBy('chap');
-                $this->sortChap($request->get('chap'), $playlistVideos);
-            }
-        } else {
-            $video->chap = config('config.default_chap');
-        }
-        $video->save();
-
-        $this->storeSource($request->get('channel_id'), $request->get('source_key'), $video);
-
-        return redirect()->route('backend.video.index');
-    }
-
-    public function storeSource($channel, $sourceKey, $video)
-    {
-        $source = new Source();
-        $source->video_id = $video->id;
-        $source->prioritize = config('config.default_prioritize');
-        $source->channel_id = $channel;
-        $source->user_id = Auth::user()->id;
-        $source->source_key = $sourceKey;
-        $source->save();
-    }
-
     public function getSources(Request $request)
     {
-        $sources = Source::select('id', 'source_key', 'prioritize', 'channel_id')
-            ->where('video_id', '=', $request->get('videoId'))
-            ->orderByRaw('prioritize ASC');
+        $sources = $this->video->getSources($request);
 
-        return DataTables::of($sources->get()->toArray())
+        return DataTables::of($sources->toArray())
             ->addColumn('action', function ($source) {
                 return
                     '<div class="main__table-btns">
@@ -152,7 +74,7 @@ class VideoController extends Controller
                     </div>';
             })
             ->editColumn('id', function ($source) {
-                return '<div class="main__table-text">' . $source['id'] . '</div>';
+                return '<div class="main__table-text">' . $source['index'] . '</div>';
             })
             ->editColumn('source_key', function ($source) {
                 return '<div class="main__table-text">' . $source['source_key'] . '</div>';
@@ -161,7 +83,7 @@ class VideoController extends Controller
                 return '<div class="main__table-text">' . $source['prioritize'] . '</div>';
             })
             ->editColumn('channel_id', function ($source) {
-                $channel = Channel::select('title')->where('id', '=', $source['channel_id'])->first();
+                $channel = $this->video->findChannel($source['channel_id']);
 
                 return '<div class="main__table-text">' . $channel['title'] . '</div>';
             })
@@ -169,103 +91,61 @@ class VideoController extends Controller
             ->make(true);
     }
 
+    public function create()
+    {
+        $channels = $this->video->getChannels();
+
+        return view('backend.videos.create')->with([
+            'channels' => $channels->toArray()
+        ]);
+    }
+
+    public function store(VideoRequest $request)
+    {
+        $this->video->storeVideo($request);
+        alert()->success(trans('created'), trans('success'));
+
+        return redirect()->route('backend.video.index');
+    }
+
     public function edit($videoId)
     {
-        try {
-            $video = Video::findOrFail($videoId);
-            $channels = Channel::get();
-            if ($video->movie_id != null) {
-                $video->movie = $video->movie()->first();
-            } else {
-                $video->movie = null;
-            }
+        $video = $this->video->findVideo($videoId);
+        $channels = $this->video->getChannels();
 
-            return view('backend.videos.edit')->with([
-                'video'=>$video->toArray(),
-                'channels'=>$channels
-            ]);
-        } catch (ModelNotFoundException $e) {
-            return $e->getMessage();
-        }
+        return view('backend.videos.edit')->with([
+            'video' => $video->toArray(),
+            'channels' => $channels
+        ]);
     }
 
     public function update(VideoRequest $request, $videoId)
     {
-        try {
-            $video = Video::findOrFail($videoId);
+        $this->video->updateVideo($request, $videoId);
+        Session::flash('status', 'new');
+        alert()->success(trans('updated'), trans('success'));
 
-            $video->title = $request->get('title');
-            $video->tags = $request->get('tags');
-            $video->description = $request->get('description');
-            $video->chap = $request->get('chap');
-            if ($video->playlist_id != null && $request->has('chap') && $video->playlist_id != null) {
-                $playlistVideos = Playlist::findOrFail($video->playlist_id)
-                    ->videos()
-                    ->where('id', '!=', $request->get('videoId'))
-                    ->get()
-                    ->sortBy('chap');
-                $this->sortChap($request->get('chap'), $playlistVideos);
-            }
-            $video->user_id = Auth::user()->id;
-            $video->save();
-
-            Session::flash('status', 'new');
-
-            return redirect(session('previous-url'));
-        } catch (ModelNotFoundException $e) {
-            return redirect()->back()->withErrors(['msg', $e->getMessage()]);
-        }
+        return redirect(session('previous-url'));
     }
 
-    public function sortChap($chap, $playlistVideos)
+    public function changeStatus($videoId)
     {
-        $i = $chap;
-        foreach ($playlistVideos as $playlistVideo) {
-            if ($playlistVideo->chap >= $chap) {
-                $playlistVideo->chap = ++$i;
-                $playlistVideo->save();
-            }
-        }
-    }
-
-    public function changeStatus($sourceId)
-    {
-        try {
-            $video = Video::findOrFail($sourceId);
-            if ($video->status == config('config.status_active')) {
-                $video->status = config('config.status_hidden');
-            } else {
-                $video->status = config('config.status_active');
-            }
-            $video->user_id = Auth::user()->id;
-            $video->save();
-
-            return $video;
-        } catch (ModelNotFoundException $e) {
-            return $e->getMessage();
-        }
+        return $this->video->changeStatus($videoId);
     }
 
     public function detach($videoId)
     {
-        try {
-            $video = Video::findOrFail($videoId);
-            $video->playlist_id = null;
-            $video->movie_id = null;
-            $video->save();
-            Session::flash('status', 'new');
+        $this->video->detach($videoId);
 
-            if (session()->has('previousList')) {
-                return redirect(session('previousList'));
-            }
-        } catch (ModelNotFoundException $e) {
-            return $e->getMessage();
+        if (session()->has('previousList')) {
+            return redirect(session('previousList'));
         }
     }
 
     public function destroy($videoId)
     {
-        $video = Video::destroy($videoId);
+        $video = $this->video->delete($videoId);
+        alert()->success(trans('deleted'), trans('success'));
 
         return redirect()->route('backend.video.index');
     }

@@ -3,17 +3,21 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Type;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 use App\Http\Requests\TypeRequest;
+use App\Repositories\Type\TypeRepositoryInterface;
 
 class TypeController extends Controller
 {
+    protected $type;
+
+    public function __construct(TypeRepositoryInterface $type)
+    {
+        $this->type = $type;
+    }
+
     public function index()
     {
         return view('backend.types.index');
@@ -21,43 +25,25 @@ class TypeController extends Controller
 
     public function getData(Request $request)
     {
-        $types = Type::select('id', 'title', 'description', 'created_at');
-        if ($request->has('title')) {
-            $types = $types->where('title', 'like', "%" . $request->get('title') . "%");
-        }
+        $types = $this->type->getTypes($request);
 
-        if ($request->has('sort')) {
-            if ($request->get('sort') == trans('title')) {
-                $types = $types->orderByRaw('title ASC');
-            } elseif ($request->get('sort') == trans('date_created')) {
-                $types = $types->orderByRaw('created_at DESC');
-            }
-        }
-
-        return DataTables::of($types->get()->toArray())
-            ->editColumn('id', function ($type) {
-                return '<div class="main__table-text">' . $type['id'] . '</div>';
-            })
-            ->editColumn('title', function ($type) {
-                return '<div class="main__table-text">' . $type['title'] . '</div>';
-            })
-            ->addColumn('action', function ($type) {
-                return
-                    '<div class="main__table-btns">
-                        <a href="' . route('backend.type.edit', $type['id']) . '" class="main__table-btn main__table-btn--edit open-modal" data-toggle="tooltip" title="Edit">
-                            <i class="icon ion-ios-create"></i>
-                        </a>
-                        <form action="' . route('backend.type.destroy', $type['id']) . '" method="POST">
-                            ' . csrf_field() . '
-                            ' . method_field('DELETE') . '
-                            <button type="submit" class="main__table-btn main__table-btn--delete">
-                                <i class="icon ion-ios-trash"></i>
-                            </button>
-                        </form>
-                    </div>';
-            })
-            ->rawColumns(['id', 'title', 'action'])
-            ->make(true);
+        return DataTables::of($types->toArray())
+        ->editColumn('id', function ($type) {
+            return '<div class="main__table-text">' . $type['index'] . '</div>';
+        })
+        ->editColumn('title', function ($type) {
+            return '<div class="main__table-text">' . $type['title'] . '</div>';
+        })
+        ->addColumn('action', function ($type) {
+            return
+                '<div class="main__table-btns">
+                    <a href="' . route('backend.type.edit', $type['id']) . '" class="main__table-btn main__table-btn--edit open-modal" data-toggle="tooltip" title="Edit">
+                        <i class="icon ion-ios-create"></i>
+                    </a>
+                </div>';
+        })
+        ->rawColumns(['id', 'title', 'action'])
+        ->make(true);
     }
 
     public function create()
@@ -67,52 +53,40 @@ class TypeController extends Controller
 
     public function store(TypeRequest $request)
     {
-        $type = new Type();
-        $type->title = $request->get('title');
-        $type->description = $request->get('description');
-        $type->slug = Str::slug($request->get('title'));
-        $type->save();
+        $this->type->storeType($request);
+
+        alert()->success(trans('created'), trans('success'));
 
         return redirect()->route('backend.type.index');
     }
 
+    public function show($typeId)
+    {
+        return $this->type->find($typeId);
+    }
+
     public function edit($typeId)
     {
-        try {
-            $type = Type::findOrFail($typeId);
+        $type = $this->type->find($typeId);
 
-            return view('backend.types.edit')->with([
-                'type' => $type->toArray(),
-            ]);
-        } catch (ModelNotFoundException $e) {
-            return $e->getMessage();
-        }
+        return view('backend.types.edit')->with([
+            'type' => $type->toArray(),
+        ]);
     }
 
     public function update(TypeRequest $request, $typeId)
     {
-        try {
-            $type = Type::findOrFail($typeId);
-            $type->title = $request->get('title');
-            $type->description = $request->get('description');
-            $type->slug = Str::slug($request->get('title'));
-            $type->save();
+        $this->type->updateType($request, $typeId);
+        alert()->success(trans('updated'), trans('success'));
 
-            return redirect()->route('backend.type.index');
-        } catch (ModelNotFoundException $e) {
-            return $e->getMessage();
-        }
+        return redirect()->route('backend.type.index');
     }
 
     public function destroy($typeId)
     {
-        try {
-            $type = Type::findOrFail($typeId)->movies()->detach();
-            $type = Type::destroy($typeId);
+        $this->type->deleteType($typeId);
+        alert()->success(trans('deleted'), trans('success'));
 
-            return redirect()->route('backend.type.index');
-        } catch (ModelNotFoundException $e) {
-            return $e->getMessage();
-        }
+        return redirect()->route('backend.type.index');
     }
 }
