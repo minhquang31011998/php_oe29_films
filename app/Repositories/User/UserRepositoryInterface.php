@@ -7,5 +7,7 @@ interface UserRepositoryInterface
 
     public function changeStatus($userId);
 
-    public function changePassword($userId, $request);
+    public function changePassword($userId, $password);
+
+    public function findUserByEmail($request);
 }

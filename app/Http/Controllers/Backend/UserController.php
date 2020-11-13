@@ -11,6 +11,8 @@ use App\Http\Requests\UserRequest;
 use App\Http\Requests\PasswordRequest;
 use Alert;
 use App\Repositories\User\UserRepositoryInterface;
+use Mail;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -104,5 +106,32 @@ class UserController extends Controller
         alert()->success(trans('deleted'), trans('success'));
 
         return redirect()->route('backend.user.index');
+    }
+
+    public function sendEmailForgotPassword(Request $request)
+    {
+        $user = $this->user->findUserByEmail($request);
+        if ($user == null) {
+            return view('auth.forgot_password')->with('error', trans('wrong_email'));
+        }
+        $password = Str::random(config('config.random_password'));
+        $this->user->changePassword($user->id, $password);
+
+        $data = [
+            'password' => $password,
+        ];
+
+        Mail::send('backend.mails.forgot_password', $data, function ($message) use ($user) {
+            $message->from(config('config.contact_email'), config('config.contact_name'));
+            $message->to($user->email, $user->name);
+            $message->subject(trans('updated') . ' ' . trans('password'));
+        });
+
+        return view('auth.email_success');
+    }
+
+    public function getFormForgotPassword()
+    {
+        return view('auth.forgot_password');
     }
 }
