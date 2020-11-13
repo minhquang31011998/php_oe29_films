@@ -69,4 +69,21 @@ class TypeRepository extends BaseRepository implements TypeRepositoryInterface
             return $e->getMessage();
         }
     }
+
+    public function getCountOfMovieFromType()
+    {
+        $types = Type::withCount('movies')->get();
+
+        if ($types == null) {
+            return null;
+        }
+        foreach ($types as $type) {
+            $data [] = [
+                'name' => $type->title,
+                'y' => $type->movies_count,
+            ];
+        }
+
+        return $data;
+    }
 }

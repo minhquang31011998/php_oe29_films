@@ -10,4 +10,6 @@ interface TypeRepositoryInterface
     public function updateType($request, $typeId);
 
     public function deleteType($typeId);
+
+    public function getCountOfMovieFromType();
 }

@@ -46,6 +46,7 @@ Route::group([
     'middleware' => ['language', 'auth', 'checkAdmin'],
 ], function () {
     Route::get('/home', 'DashboardController@home')->name('home');
+    Route::get('/chart', 'ChartController@index')->name('chart');
     Route::group([
         'prefix'=>'movie',
         'as'=>'movie.'
