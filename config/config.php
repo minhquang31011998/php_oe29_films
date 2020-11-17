@@ -31,4 +31,7 @@ return [
     'role_user' => 2,
     'take_user' => 6,
     'number_after_float' => 1,
+    'contact_name' => 'Admin',
+    'admin_email' => 'minhquang31011998@gmail.com',
+    'random_password' => 8,
 ];

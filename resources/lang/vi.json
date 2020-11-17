@@ -137,5 +137,11 @@
     "deleted": "Xóa",
     "hello": "Xin chào",
     "welcome": "Chào mừng đến với trang web của tôi",
-    "step": "Hãy hoàn thành bước kế tiếp"
+    "step": "Hãy hoàn thành bước kế tiếp",
+    "chart": "Biểu đồ",
+    "your_password": "Mật khẩu của bạn là",
+    "login_to_change_pass": "Hãy đăng nhập để thay đổi mật khẩu",
+    "wrong_email": "Email không tồn tại",
+    "sent_mail": "Email đã được gửi. Hãy kiểm tra email của bạn",
+    "forget_password": "Quên mật khẩu"
 }

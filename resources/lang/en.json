@@ -137,5 +137,11 @@
     "deleted": "Deleted",
     "hello": "Hello",
     "welcome": "Welcome to my website",
-    "step": "Please complete the next step"
+    "step": "Please complete the next step",
+    "chart": "Chart",
+    "your_password": "Your password is",
+    "login_to_change_pass": "Please login to change password",
+    "wrong_email": "Email doesn't exist",
+    "sent_mail": "Email has been sent. Please check your email",
+    "forget_password": "Forgot password"
 }

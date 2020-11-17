@@ -60,11 +60,18 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         }
     }
 
-    public function changePassword($userId, $request)
+    public function changePassword($userId, $password)
     {
         $user = User::findOrFail($userId);
-        $user->password = bcrypt($request->get('password'));
+        $user->password = bcrypt($password);
 
         return $user->save();
+    }
+
+    public function findUserByEmail($request)
+    {
+        $user = User::where('email', $request->email)->first();
+
+        return $user;
     }
 }

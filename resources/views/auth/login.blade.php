@@ -32,5 +32,6 @@
 
         <button id="login-btn" class="sign__btn" type="submit">{{ trans('sign_in') }}</button>
         <span class="sign__text">{{ trans('no_account') }} <a id="sign-up" href="{{ route('register') }}">{{ trans('sign_up') }}!</a></span>
+        <span class="sign__text"><a href="{{ route('forgotPassword') }}">{{ trans('forget_password') }}?</a></span>
     </form>
 @endsection
