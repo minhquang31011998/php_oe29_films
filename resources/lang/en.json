@@ -143,5 +143,7 @@
     "login_to_change_pass": "Please login to change password",
     "wrong_email": "Email doesn't exist",
     "sent_mail": "Email has been sent. Please check your email",
-    "forget_password": "Forgot password"
+    "forget_password": "Forgot password",
+    "new_user": "New User",
+    "statistic_month": "Statistics this month"
 }

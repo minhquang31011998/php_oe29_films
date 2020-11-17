@@ -40,4 +40,6 @@ interface MovieRepositoryInterface
     public function updateVideo($request, $movieId);
 
     public function deleteMovie($movieId);
+
+    public function getNewMovieInMonth();
 }
