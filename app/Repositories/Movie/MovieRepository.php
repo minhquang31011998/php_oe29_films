@@ -330,4 +330,12 @@ class MovieRepository extends BaseRepository implements MovieRepositoryInterface
             return $e->getMessage();
         }
     }
+
+    public function getNewMovieInMonth()
+    {
+        $month = Carbon::now()->month;
+        $movie = Movie::whereMonth('created_at', $month)->get();
+
+        return $movie->count();
+    }
 }

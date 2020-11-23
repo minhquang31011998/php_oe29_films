@@ -143,5 +143,7 @@
     "login_to_change_pass": "Hãy đăng nhập để thay đổi mật khẩu",
     "wrong_email": "Email không tồn tại",
     "sent_mail": "Email đã được gửi. Hãy kiểm tra email của bạn",
-    "forget_password": "Quên mật khẩu"
+    "forget_password": "Quên mật khẩu",
+    "new_user": "Người dùng mới",
+    "statistic_month": "Thống kê tháng này"
 }

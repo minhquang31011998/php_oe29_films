@@ -177,3 +177,11 @@ Route::group([
     Route::get('register', 'RegisterController@showRegistrationForm')->name('register');
     Route::post('register', 'RegisterController@register')->name('registerProcess');
 });
+
+Route::group([
+    'middleware' => 'language',
+    'namespace' => 'Backend',
+], function () {
+    Route::get('forgot-password', 'UserController@getFormForgotPassword')->name('forgotPassword');
+    Route::post('send-email-forgot-password', 'UserController@sendEmailForgotPassword')->name('sendMailForgotPassword');
+});

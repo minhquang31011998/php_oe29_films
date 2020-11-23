@@ -10,4 +10,6 @@ interface UserRepositoryInterface
     public function changePassword($userId, $password);
 
     public function findUserByEmail($request);
+
+    public function getNewUserInMonth();
 }

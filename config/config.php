@@ -34,4 +34,5 @@ return [
     'contact_name' => 'Admin',
     'admin_email' => 'minhquang31011998@gmail.com',
     'random_password' => 8,
+    'time_send_mail' => '20:00',
 ];

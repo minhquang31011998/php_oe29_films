@@ -74,4 +74,12 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
         return $user;
     }
+
+    public function getNewUserInMonth()
+    {
+        $month = Carbon::now()->month;
+        $user = User::whereMonth('created_at', $month)->get();
+
+        return $user->count();
+    }
 }
