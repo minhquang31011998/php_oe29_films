@@ -26,7 +26,7 @@ class CreateMoviesTable extends Migration
             $table->integer('release_year')->comment('nam san xuat');
             $table->integer('quality')->comment('chat luong');
             $table->integer('country')->comment('quoc gia');
-            $table->integer('rate')->comment('diem danh gia');
+            $table->integer('rate')->nullable()->comment('diem danh gia');
             $table->string('slug')->comment('ten');
             $table->integer('user_id')->comment('nguoi tao');
             $table->timestamps();

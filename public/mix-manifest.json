@@ -1,0 +1,23 @@
+{
+    "/build/backend/js/channel.js": "/build/backend/js/channel.js",
+    "/build/backend/js/chart.js": "/build/backend/js/chart.js",
+    "/build/backend/js/crudchannel.js": "/build/backend/js/crudchannel.js",
+    "/build/backend/js/crudmovie.js": "/build/backend/js/crudmovie.js",
+    "/build/backend/js/crudplaylist.js": "/build/backend/js/crudplaylist.js",
+    "/build/backend/js/crudtype.js": "/build/backend/js/crudtype.js",
+    "/build/backend/js/cruduser.js": "/build/backend/js/cruduser.js",
+    "/build/backend/js/crudvideo.js": "/build/backend/js/crudvideo.js",
+    "/build/backend/js/movie.js": "/build/backend/js/movie.js",
+    "/build/backend/js/playlist.js": "/build/backend/js/playlist.js",
+    "/build/backend/js/request.js": "/build/backend/js/request.js",
+    "/build/backend/js/source.js": "/build/backend/js/source.js",
+    "/build/backend/js/type.js": "/build/backend/js/type.js",
+    "/build/backend/js/user.js": "/build/backend/js/user.js",
+    "/build/backend/js/video.js": "/build/backend/js/video.js",
+    "/build/frontend/js/action.js": "/build/frontend/js/action.js",
+    "/build/backend/css/film.css": "/build/backend/css/film.css",
+    "/build/backend/css/movie.css": "/build/backend/css/movie.css",
+    "/build/backend/css/playlist.css": "/build/backend/css/playlist.css",
+    "/build/frontend/css/rate.css": "/build/frontend/css/rate.css",
+    "/build/backend/css/chart.css": "/build/backend/css/chart.css"
+}

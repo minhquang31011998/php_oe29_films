@@ -1,0 +1,14 @@
+#sidebar_title {
+    color:rgba(255,255,255,0.75);
+}
+
+.check-list {
+    width: 20px;
+    height: 20px;
+    -webkit-appearance: checkbox;
+}
+
+.or-select {
+    text-align: center;
+    color: white;
+}

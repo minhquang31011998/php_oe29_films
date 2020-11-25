@@ -22,7 +22,7 @@ class Video extends Model
 
     public function movie()
     {
-        return $this->belongsTo(Type::class);
+        return $this->belongsTo(Movie::class);
     }
 
     public function sources()

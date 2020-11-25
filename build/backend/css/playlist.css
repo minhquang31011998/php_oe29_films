@@ -1,0 +1,5 @@
+#checkboxVideo {
+    width: 20px;
+    height: 20px;
+    -webkit-appearance: checkbox;
+}

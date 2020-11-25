@@ -55,11 +55,17 @@
                             <button class="header__search-btn" type="button">
                                 <i class="icon ion-ios-search"></i>
                             </button>
-
-                            <a href="" class="header__sign-in">
-                                <i class="icon ion-ios-log-in"></i>
-                                <span>{{ trans('sign_in') }}</span>
-                            </a>
+                            @if (auth()->check())
+                                <a href="{{ route('logout') }}" class="header__sign-in">
+                                    <i class="icon ion-ios-log-in"></i>
+                                    <span>{{ trans('sign_out') }}</span>
+                                </a>
+                            @else
+                                <a href="{{ route('login') }}" class="header__sign-in">
+                                    <i class="icon ion-ios-log-in"></i>
+                                    <span>{{ trans('sign_in') }}</span>
+                                </a>
+                            @endif
                             <div class="dropdown header__lang">
                                 <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenuLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Session::has('language') ? Session::get('language') : trans('EN') }}</a>
 
@@ -69,6 +75,29 @@
                                 </ul>
                             </div>
                         </div>
+                        @if (auth()->check())
+                            <input type="hidden" id="idUser" value="{{ Auth::user()->id }}">
+                            <div class="dropdown header__lang">
+                                <a class="dropdown-toggle header__nav-link notification" href="#" role="button" id="dropdownMenuLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-bell"></i>
+                                    @if(Auth::user()->unreadNotifications->count() != 0)
+                                        <span class="badge badge-warning navbar-badge" id="numberNoti">{{ Auth::user()->unreadNotifications->count() }}</span>
+                                    @endif
+                                </a>
+                                <ul class="dropdown-menu header__dropdown-menu-noti scrollbar-dropdown mCustomScrollbar _mCS_1 menu-noti" aria-labelledby="dropdownMenuLang">
+                                @foreach (Auth::user()->unreadNotifications as $notification)
+                                    <li>
+                                        <a style="color:#167ac6" color:#167ac6 href=""><b>{{ $notification->data['nameUser'] }}</b> {{ trans('reply_comment') }}: <b>{{ $notification->data['nameMovie'] }}</b></a>
+                                    </li>
+                                @endforeach
+                                @foreach (Auth::user()->notifications as $notification)
+                                    <li>
+                                        <a href=""><b>{{ $notification->data['nameUser'] }}</b> {{ trans('reply_comment') }}: <b>{{ $notification->data['nameMovie'] }}</b></a>
+                                    </li>
+                                @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <!-- end header auth -->
                         <!-- header menu btn -->
                         <button class="header__btn" type="button">

@@ -12,6 +12,10 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
-  ]
+    "tests",
+    "public/bower_components"
+  ],
+  "dependencies": {
+    "bower_film": "https://github.com/minhquang31011998/bower_film.git"
+  }
 }

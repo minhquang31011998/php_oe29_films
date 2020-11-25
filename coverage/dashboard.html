@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /opt/lampp/htdocs/php_oe29_films_1/app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="_css/style.css" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/opt/lampp/htdocs/php_oe29_films_1/app</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Console/Commands/Statistical.php.html#10">App\Console\Commands\Statistical</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Source.php.html#8">App\Models\Source</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/SourceRequest.php.html#7">App\Http\Requests\SourceRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/TypeRequest.php.html#8">App\Http\Requests\TypeRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UserRequest.php.html#7">App\Http\Requests\UserRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/VideoRequest.php.html#7">App\Http\Requests\VideoRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/ViewComposers/MovieComposer.php.html#8">App\Http\ViewComposers\MovieComposer</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Jobs/SendForgetPasswordEmail.php.html#12">App\Jobs\SendForgetPasswordEmail</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Jobs/SendStatisticalEmail.php.html#12">App\Jobs\SendStatisticalEmail</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Comment.php.html#7">App\Models\Comment</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Movie.php.html#8">App\Models\Movie</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Rate.php.html#7">App\Models\Rate</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Req.php.html#8">App\Models\Req</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#10">App\Models\User</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/PlaylistRequest.php.html#7">App\Http\Requests\PlaylistRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Video.php.html#8">App\Models\Video</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Notifications/CommentNotification.php.html#10">App\Notifications\CommentNotification</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/BaseRepository.php.html#7">App\Repositories\BaseRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Channel/ChannelReposirory.php.html#9">App\Repositories\Channel\ChannelRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Comment/CommentRepository.php.html#10">App\Repositories\Comment\CommentRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#20">App\Repositories\Movie\MovieRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#12">App\Repositories\Playlist\PlaylistRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Rate/RateRepository.php.html#8">App\Repositories\Rate\RateRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Source/SourceRepository.php.html#10">App\Repositories\Source\SourceRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Type/TypeRepository.php.html#9">App\Repositories\Type\TypeRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/User/UserRepository.php.html#10">App\Repositories\User\UserRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/ReqRequest.php.html#7">App\Http\Requests\ReqRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/PasswordRequest.php.html#7">App\Http\Requests\PasswordRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#12">App\Repositories\Video\VideoRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/SourceController.php.html#12">App\Http\Controllers\Backend\SourceController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/NotificationEvent.php.html#13">App\Events\NotificationEvent</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Exceptions/Handler.php.html#8">App\Exceptions\Handler</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ConfirmPasswordController.php.html#9">App\Http\Controllers\Auth\ConfirmPasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/LoginController.php.html#11">App\Http\Controllers\Auth\LoginController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/RegisterController.php.html#12">App\Http\Controllers\Auth\RegisterController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerificationController.php.html#9">App\Http\Controllers\Auth\VerificationController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/ChannelController.php.html#13">App\Http\Controllers\Backend\ChannelController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/DashboardController.php.html#14">App\Http\Controllers\Backend\DashboardController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#14">App\Http\Controllers\Backend\MovieController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#14">App\Http\Controllers\Backend\PlaylistController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/RequestController.php.html#11">App\Http\Controllers\Backend\RequestController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/TypeController.php.html#12">App\Http\Controllers\Backend\TypeController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/MovieRequest.php.html#7">App\Http\Requests\MovieRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/VideoController.php.html#12">App\Http\Controllers\Backend\VideoController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/HomeController.php.html#8">App\Http\Controllers\Frontend\HomeController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#17">App\Http\Controllers\Frontend\MovieController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/HomeController.php.html#7">App\Http\Controllers\HomeController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/Authenticate.php.html#7">App\Http\Middleware\Authenticate</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/CheckAdmin.php.html#8">App\Http\Middleware\CheckAdmin</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/Language.php.html#8">App\Http\Middleware\Language</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#9">App\Http\Middleware\RedirectIfAuthenticated</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/TrustHosts.php.html#7">App\Http\Middleware\TrustHosts</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/ChannelRequest.php.html#7">App\Http\Requests\ChannelRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/UserController.php.html#16">App\Http\Controllers\Backend\UserController</a></td><td class="text-right">21%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/CommentController.php.html#14">App\Http\Controllers\Frontend\CommentController</a></td><td class="text-right">41%</td></tr>
+       <tr><td><a href="Console/Kernel.php.html#10">App\Console\Kernel</a></td><td class="text-right">50%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#20">App\Repositories\Movie\MovieRepository</a></td><td class="text-right">2652</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#17">App\Http\Controllers\Frontend\MovieController</a></td><td class="text-right">1892</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#12">App\Repositories\Playlist\PlaylistRepository</a></td><td class="text-right">1406</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#12">App\Repositories\Video\VideoRepository</a></td><td class="text-right">1122</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#14">App\Http\Controllers\Backend\MovieController</a></td><td class="text-right">306</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#14">App\Http\Controllers\Backend\PlaylistController</a></td><td class="text-right">272</td></tr>
+       <tr><td><a href="Repositories/Type/TypeRepository.php.html#9">App\Repositories\Type\TypeRepository</a></td><td class="text-right">240</td></tr>
+       <tr><td><a href="Repositories/User/UserRepository.php.html#10">App\Repositories\User\UserRepository</a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="Repositories/Source/SourceRepository.php.html#10">App\Repositories\Source\SourceRepository</a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/VideoController.php.html#12">App\Http\Controllers\Backend\VideoController</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="Repositories/Channel/ChannelReposirory.php.html#9">App\Repositories\Channel\ChannelRepository</a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/ChannelController.php.html#13">App\Http\Controllers\Backend\ChannelController</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Repositories/BaseRepository.php.html#7">App\Repositories\BaseRepository</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/UserController.php.html#16">App\Http\Controllers\Backend\UserController</a></td><td class="text-right">95</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/LoginController.php.html#11">App\Http\Controllers\Auth\LoginController</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Repositories/Rate/RateRepository.php.html#8">App\Repositories\Rate\RateRepository</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/CommentController.php.html#14">App\Http\Controllers\Frontend\CommentController</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/RequestController.php.html#11">App\Http\Controllers\Backend\RequestController</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Http/Middleware/CheckAdmin.php.html#8">App\Http\Middleware\CheckAdmin</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#9">App\Http\Middleware\RedirectIfAuthenticated</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Middleware/Authenticate.php.html#7">App\Http\Middleware\Authenticate</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/HomeController.php.html#8">App\Http\Controllers\Frontend\HomeController</a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Console/Commands/Statistical.php.html#31"><abbr title="App\Console\Commands\Statistical::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Channel/ChannelReposirory.php.html#34"><abbr title="App\Repositories\Channel\ChannelRepository::getChannels">getChannels</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Notifications/CommentNotification.php.html#16"><abbr title="App\Notifications\CommentNotification::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Notifications/CommentNotification.php.html#21"><abbr title="App\Notifications\CommentNotification::via">via</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Notifications/CommentNotification.php.html#26"><abbr title="App\Notifications\CommentNotification::toArray">toArray</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/BaseRepository.php.html#11"><abbr title="App\Repositories\BaseRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/BaseRepository.php.html#18"><abbr title="App\Repositories\BaseRepository::setModel">setModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/BaseRepository.php.html#25"><abbr title="App\Repositories\BaseRepository::getAll">getAll</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/BaseRepository.php.html#30"><abbr title="App\Repositories\BaseRepository::find">find</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/BaseRepository.php.html#37"><abbr title="App\Repositories\BaseRepository::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/BaseRepository.php.html#42"><abbr title="App\Repositories\BaseRepository::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/BaseRepository.php.html#53"><abbr title="App\Repositories\BaseRepository::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Channel/ChannelReposirory.php.html#11"><abbr title="App\Repositories\Channel\ChannelRepository::getModel">getModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Channel/ChannelReposirory.php.html#16"><abbr title="App\Repositories\Channel\ChannelRepository::changeStatus">changeStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Channel/ChannelReposirory.php.html#59"><abbr title="App\Repositories\Channel\ChannelRepository::getChannelTypes">getChannelTypes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Video.php.html#33"><abbr title="App\Models\Video::playlist">playlist</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Comment/CommentRepository.php.html#12"><abbr title="App\Repositories\Comment\CommentRepository::getModel">getModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Comment/CommentRepository.php.html#17"><abbr title="App\Repositories\Comment\CommentRepository::storeComment">storeComment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Comment/CommentRepository.php.html#28"><abbr title="App\Repositories\Comment\CommentRepository::getUser">getUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Comment/CommentRepository.php.html#33"><abbr title="App\Repositories\Comment\CommentRepository::getMovie">getMovie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Comment/CommentRepository.php.html#38"><abbr title="App\Repositories\Comment\CommentRepository::getComments">getComments</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Comment/CommentRepository.php.html#52"><abbr title="App\Repositories\Comment\CommentRepository::getReplyComments">getReplyComments</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Comment/CommentRepository.php.html#62"><abbr title="App\Repositories\Comment\CommentRepository::storeNotification">storeNotification</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#22"><abbr title="App\Repositories\Movie\MovieRepository::getModel">getModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#27"><abbr title="App\Repositories\Movie\MovieRepository::getMovies">getMovies</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#53"><abbr title="App\Repositories\Movie\MovieRepository::changeNomination">changeNomination</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#70"><abbr title="App\Repositories\Movie\MovieRepository::getTags">getTags</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#77"><abbr title="App\Repositories\Movie\MovieRepository::getMoviePlaylists">getMoviePlaylists</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#96"><abbr title="App\Repositories\Movie\MovieRepository::getPlaylists">getPlaylists</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Video.php.html#38"><abbr title="App\Models\Video::histories">histories</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Video.php.html#28"><abbr title="App\Models\Video::sources">sources</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#133"><abbr title="App\Repositories\Movie\MovieRepository::getOptionValue">getOptionValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Comment.php.html#13"><abbr title="App\Models\Comment::movie">movie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/TypeRequest.php.html#15"><abbr title="App\Http\Requests\TypeRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/TypeRequest.php.html#25"><abbr title="App\Http\Requests\TypeRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UserRequest.php.html#14"><abbr title="App\Http\Requests\UserRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UserRequest.php.html#24"><abbr title="App\Http\Requests\UserRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/VideoRequest.php.html#14"><abbr title="App\Http\Requests\VideoRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/VideoRequest.php.html#24"><abbr title="App\Http\Requests\VideoRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/ViewComposers/MovieComposer.php.html#12"><abbr title="App\Http\ViewComposers\MovieComposer::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/ViewComposers/MovieComposer.php.html#21"><abbr title="App\Http\ViewComposers\MovieComposer::compose">compose</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Jobs/SendForgetPasswordEmail.php.html#19"><abbr title="App\Jobs\SendForgetPasswordEmail::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Jobs/SendForgetPasswordEmail.php.html#25"><abbr title="App\Jobs\SendForgetPasswordEmail::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Jobs/SendStatisticalEmail.php.html#19"><abbr title="App\Jobs\SendStatisticalEmail::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Jobs/SendStatisticalEmail.php.html#30"><abbr title="App\Jobs\SendStatisticalEmail::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Comment.php.html#18"><abbr title="App\Models\Comment::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Video.php.html#23"><abbr title="App\Models\Video::movie">movie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Movie.php.html#29"><abbr title="App\Models\Movie::tags">tags</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Movie.php.html#34"><abbr title="App\Models\Movie::types">types</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Movie.php.html#39"><abbr title="App\Models\Movie::videos">videos</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Movie.php.html#44"><abbr title="App\Models\Movie::sources">sources</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Movie.php.html#49"><abbr title="App\Models\Movie::playlists">playlists</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Movie.php.html#54"><abbr title="App\Models\Movie::comments">comments</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Movie.php.html#59"><abbr title="App\Models\Movie::rates">rates</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Rate.php.html#15"><abbr title="App\Models\Rate::movie">movie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Req.php.html#12"><abbr title="App\Models\Req::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Source.php.html#22"><abbr title="App\Models\Source::movie">movie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Source.php.html#27"><abbr title="App\Models\Source::channel">channel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Source.php.html#32"><abbr title="App\Models\Source::video">video</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#33"><abbr title="App\Models\User::requests">requests</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#115"><abbr title="App\Repositories\Movie\MovieRepository::getVideos">getVideos</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#141"><abbr title="App\Repositories\Movie\MovieRepository::storeMovie">storeMovie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/SourceRequest.php.html#14"><abbr title="App\Http\Requests\SourceRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/User/UserRepository.php.html#65"><abbr title="App\Repositories\User\UserRepository::changePassword">changePassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Source/SourceRepository.php.html#37"><abbr title="App\Repositories\Source\SourceRepository::sortSource">sortSource</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Source/SourceRepository.php.html#59"><abbr title="App\Repositories\Source\SourceRepository::updateSource">updateSource</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Source/SourceRepository.php.html#79"><abbr title="App\Repositories\Source\SourceRepository::deleteSource">deleteSource</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Type/TypeRepository.php.html#11"><abbr title="App\Repositories\Type\TypeRepository::getModel">getModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Type/TypeRepository.php.html#16"><abbr title="App\Repositories\Type\TypeRepository::getTypes">getTypes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Type/TypeRepository.php.html#38"><abbr title="App\Repositories\Type\TypeRepository::storeType">storeType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Type/TypeRepository.php.html#48"><abbr title="App\Repositories\Type\TypeRepository::updateType">updateType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Type/TypeRepository.php.html#62"><abbr title="App\Repositories\Type\TypeRepository::deleteType">deleteType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Type/TypeRepository.php.html#73"><abbr title="App\Repositories\Type\TypeRepository::getCountOfMovieFromType">getCountOfMovieFromType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/User/UserRepository.php.html#12"><abbr title="App\Repositories\User\UserRepository::getModel">getModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/User/UserRepository.php.html#17"><abbr title="App\Repositories\User\UserRepository::getUsers">getUsers</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/User/UserRepository.php.html#48"><abbr title="App\Repositories\User\UserRepository::changeStatus">changeStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/User/UserRepository.php.html#73"><abbr title="App\Repositories\User\UserRepository::findUserByEmail">findUserByEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Source/SourceRepository.php.html#12"><abbr title="App\Repositories\Source\SourceRepository::getModel">getModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/User/UserRepository.php.html#80"><abbr title="App\Repositories\User\UserRepository::getNewUserInMonth">getNewUserInMonth</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/User/UserRepository.php.html#89"><abbr title="App\Repositories\User\UserRepository::storeQueue">storeQueue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#14"><abbr title="App\Repositories\Video\VideoRepository::getModel">getModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#19"><abbr title="App\Repositories\Video\VideoRepository::getVideos">getVideos</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#49"><abbr title="App\Repositories\Video\VideoRepository::getSources">getSources</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#63"><abbr title="App\Repositories\Video\VideoRepository::getChannels">getChannels</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#68"><abbr title="App\Repositories\Video\VideoRepository::storeVideo">storeVideo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#100"><abbr title="App\Repositories\Video\VideoRepository::storeSource">storeSource</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#112"><abbr title="App\Repositories\Video\VideoRepository::findVideo">findVideo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#124"><abbr title="App\Repositories\Video\VideoRepository::updateVideo">updateVideo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#148"><abbr title="App\Repositories\Video\VideoRepository::sortChap">sortChap</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#159"><abbr title="App\Repositories\Video\VideoRepository::changeStatus">changeStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#177"><abbr title="App\Repositories\Video\VideoRepository::detach">detach</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Source/SourceRepository.php.html#17"><abbr title="App\Repositories\Source\SourceRepository::storeSource">storeSource</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Rate/RateRepository.php.html#43"><abbr title="App\Repositories\Rate\RateRepository::findMovieRate">findMovieRate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#176"><abbr title="App\Repositories\Movie\MovieRepository::storeImages">storeImages</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#336"><abbr title="App\Repositories\Movie\MovieRepository::getNewMovieInMonth">getNewMovieInMonth</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#185"><abbr title="App\Repositories\Movie\MovieRepository::storeTags">storeTags</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#203"><abbr title="App\Repositories\Movie\MovieRepository::getChannels">getChannels</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#208"><abbr title="App\Repositories\Movie\MovieRepository::getTypes">getTypes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#213"><abbr title="App\Repositories\Movie\MovieRepository::getMovieTags">getMovieTags</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#218"><abbr title="App\Repositories\Movie\MovieRepository::getMovieTypes">getMovieTypes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#223"><abbr title="App\Repositories\Movie\MovieRepository::getMovieVideos">getMovieVideos</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#228"><abbr title="App\Repositories\Movie\MovieRepository::updateMovie">updateMovie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#259"><abbr title="App\Repositories\Movie\MovieRepository::updateTags">updateTags</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#265"><abbr title="App\Repositories\Movie\MovieRepository::updateImage">updateImage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#276"><abbr title="App\Repositories\Movie\MovieRepository::updatePlaylist">updatePlaylist</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#301"><abbr title="App\Repositories\Movie\MovieRepository::updateVideo">updateVideo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#313"><abbr title="App\Repositories\Movie\MovieRepository::deleteMovie">deleteMovie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#14"><abbr title="App\Repositories\Playlist\PlaylistRepository::getModel">getModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Rate/RateRepository.php.html#36"><abbr title="App\Repositories\Rate\RateRepository::findMovie">findMovie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#19"><abbr title="App\Repositories\Playlist\PlaylistRepository::getPlaylists">getPlaylists</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#47"><abbr title="App\Repositories\Playlist\PlaylistRepository::getPlaylistVideos">getPlaylistVideos</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#61"><abbr title="App\Repositories\Playlist\PlaylistRepository::getVideos">getVideos</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#75"><abbr title="App\Repositories\Playlist\PlaylistRepository::storePlaylist">storePlaylist</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#105"><abbr title="App\Repositories\Playlist\PlaylistRepository::getChannels">getChannels</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#110"><abbr title="App\Repositories\Playlist\PlaylistRepository::updatePlaylist">updatePlaylist</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#139"><abbr title="App\Repositories\Playlist\PlaylistRepository::chooseVideo">chooseVideo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#168"><abbr title="App\Repositories\Playlist\PlaylistRepository::deletePlaylist">deletePlaylist</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#183"><abbr title="App\Repositories\Playlist\PlaylistRepository::detach">detach</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#191"><abbr title="App\Repositories\Playlist\PlaylistRepository::changeStatus">changeStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Rate/RateRepository.php.html#10"><abbr title="App\Repositories\Rate\RateRepository::getModel">getModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Rate/RateRepository.php.html#15"><abbr title="App\Repositories\Rate\RateRepository::findRate">findRate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Rate/RateRepository.php.html#25"><abbr title="App\Repositories\Rate\RateRepository::updateMovie">updateMovie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/SourceRequest.php.html#24"><abbr title="App\Http\Requests\SourceRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/ReqRequest.php.html#24"><abbr title="App\Http\Requests\ReqRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/Commands/Statistical.php.html#43"><abbr title="App\Console\Commands\Statistical::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#30"><abbr title="App\Http\Controllers\Backend\PlaylistController::getData">getData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#76"><abbr title="App\Http\Controllers\Backend\MovieController::getMoviePlaylists">getMoviePlaylists</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#116"><abbr title="App\Http\Controllers\Backend\MovieController::getPlaylists">getPlaylists</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#142"><abbr title="App\Http\Controllers\Backend\MovieController::getVideos">getVideos</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#165"><abbr title="App\Http\Controllers\Backend\MovieController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#180"><abbr title="App\Http\Controllers\Backend\MovieController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#189"><abbr title="App\Http\Controllers\Backend\MovieController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#224"><abbr title="App\Http\Controllers\Backend\MovieController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#233"><abbr title="App\Http\Controllers\Backend\MovieController::updatePlaylist">updatePlaylist</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#238"><abbr title="App\Http\Controllers\Backend\MovieController::updateVideo">updateVideo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#245"><abbr title="App\Http\Controllers\Backend\MovieController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#18"><abbr title="App\Http\Controllers\Backend\PlaylistController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#23"><abbr title="App\Http\Controllers\Backend\PlaylistController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#60"><abbr title="App\Http\Controllers\Backend\PlaylistController::getPlaylistVideos">getPlaylistVideos</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#63"><abbr title="App\Http\Controllers\Backend\MovieController::nominations">nominations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#90"><abbr title="App\Http\Controllers\Backend\PlaylistController::getVideos">getVideos</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#111"><abbr title="App\Http\Controllers\Backend\PlaylistController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#116"><abbr title="App\Http\Controllers\Backend\PlaylistController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#124"><abbr title="App\Http\Controllers\Backend\PlaylistController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#134"><abbr title="App\Http\Controllers\Backend\PlaylistController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#147"><abbr title="App\Http\Controllers\Backend\PlaylistController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#162"><abbr title="App\Http\Controllers\Backend\PlaylistController::chooseVideo">chooseVideo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#169"><abbr title="App\Http\Controllers\Backend\PlaylistController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#177"><abbr title="App\Http\Controllers\Backend\PlaylistController::detach">detach</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#185"><abbr title="App\Http\Controllers\Backend\PlaylistController::changeStatus">changeStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/RequestController.php.html#13"><abbr title="App\Http\Controllers\Backend\RequestController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/RequestController.php.html#18"><abbr title="App\Http\Controllers\Backend\RequestController::getData">getData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/RequestController.php.html#52"><abbr title="App\Http\Controllers\Backend\RequestController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#68"><abbr title="App\Http\Controllers\Backend\MovieController::getTags">getTags</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#28"><abbr title="App\Http\Controllers\Backend\MovieController::getData">getData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/SourceController.php.html#16"><abbr title="App\Http\Controllers\Backend\SourceController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/RegisterController.php.html#66"><abbr title="App\Http\Controllers\Auth\RegisterController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/Kernel.php.html#27"><abbr title="App\Console\Kernel::schedule">schedule</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/NotificationEvent.php.html#23"><abbr title="App\Events\NotificationEvent::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/NotificationEvent.php.html#33"><abbr title="App\Events\NotificationEvent::broadcastOn">broadcastOn</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Exceptions/Handler.php.html#37"><abbr title="App\Exceptions\Handler::report">report</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Exceptions/Handler.php.html#51"><abbr title="App\Exceptions\Handler::render">render</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ConfirmPasswordController.php.html#36"><abbr title="App\Http\Controllers\Auth\ConfirmPasswordController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/LoginController.php.html#38"><abbr title="App\Http\Controllers\Auth\LoginController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/LoginController.php.html#43"><abbr title="App\Http\Controllers\Auth\LoginController::showLoginForm">showLoginForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/LoginController.php.html#48"><abbr title="App\Http\Controllers\Auth\LoginController::login">login</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/LoginController.php.html#68"><abbr title="App\Http\Controllers\Auth\LoginController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/RegisterController.php.html#39"><abbr title="App\Http\Controllers\Auth\RegisterController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/RegisterController.php.html#50"><abbr title="App\Http\Controllers\Auth\RegisterController::validator">validator</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/RegisterController.php.html#77"><abbr title="App\Http\Controllers\Auth\RegisterController::showRegistrationForm">showRegistrationForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#23"><abbr title="App\Http\Controllers\Backend\MovieController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerificationController.php.html#36"><abbr title="App\Http\Controllers\Auth\VerificationController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/ChannelController.php.html#17"><abbr title="App\Http\Controllers\Backend\ChannelController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/ChannelController.php.html#22"><abbr title="App\Http\Controllers\Backend\ChannelController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/ChannelController.php.html#27"><abbr title="App\Http\Controllers\Backend\ChannelController::getData">getData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/ChannelController.php.html#58"><abbr title="App\Http\Controllers\Backend\ChannelController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/ChannelController.php.html#67"><abbr title="App\Http\Controllers\Backend\ChannelController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/ChannelController.php.html#79"><abbr title="App\Http\Controllers\Backend\ChannelController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/ChannelController.php.html#90"><abbr title="App\Http\Controllers\Backend\ChannelController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/ChannelController.php.html#101"><abbr title="App\Http\Controllers\Backend\ChannelController::changeStatus">changeStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/ChannelController.php.html#106"><abbr title="App\Http\Controllers\Backend\ChannelController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/DashboardController.php.html#16"><abbr title="App\Http\Controllers\Backend\DashboardController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/DashboardController.php.html#20"><abbr title="App\Http\Controllers\Backend\DashboardController::home">home</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#18"><abbr title="App\Http\Controllers\Backend\MovieController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/RequestController.php.html#63"><abbr title="App\Http\Controllers\Backend\RequestController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/SourceController.php.html#21"><abbr title="App\Http\Controllers\Backend\SourceController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/ReqRequest.php.html#14"><abbr title="App\Http\Requests\ReqRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/HomeController.php.html#14"><abbr title="App\Http\Controllers\HomeController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/HomeController.php.html#10"><abbr title="App\Http\Controllers\Frontend\HomeController::language">language</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#19"><abbr title="App\Http\Controllers\Frontend\MovieController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#47"><abbr title="App\Http\Controllers\Frontend\MovieController::getMovieWithGenre">getMovieWithGenre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#67"><abbr title="App\Http\Controllers\Frontend\MovieController::getOptionValueOfFilm">getOptionValueOfFilm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#82"><abbr title="App\Http\Controllers\Frontend\MovieController::watchMovie">watchMovie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#271"><abbr title="App\Http\Controllers\Frontend\MovieController::listMovie">listMovie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#304"><abbr title="App\Http\Controllers\Frontend\MovieController::getDataForFilter">getDataForFilter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#321"><abbr title="App\Http\Controllers\Frontend\MovieController::getOptionValue">getOptionValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#334"><abbr title="App\Http\Controllers\Frontend\MovieController::getMovieFromOption">getMovieFromOption</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#349"><abbr title="App\Http\Controllers\Frontend\MovieController::filter">filter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#402"><abbr title="App\Http\Controllers\Frontend\MovieController::search">search</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#420"><abbr title="App\Http\Controllers\Frontend\MovieController::searchTag">searchTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/HomeController.php.html#24"><abbr title="App\Http\Controllers\HomeController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/CommentController.php.html#79"><abbr title="App\Http\Controllers\Frontend\CommentController::getReplyData">getReplyData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/Authenticate.php.html#15"><abbr title="App\Http\Middleware\Authenticate::redirectTo">redirectTo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/CheckAdmin.php.html#17"><abbr title="App\Http\Middleware\CheckAdmin::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/Language.php.html#17"><abbr title="App\Http\Middleware\Language::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#19"><abbr title="App\Http\Middleware\RedirectIfAuthenticated::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/TrustHosts.php.html#14"><abbr title="App\Http\Middleware\TrustHosts::hosts">hosts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/ChannelRequest.php.html#14"><abbr title="App\Http\Requests\ChannelRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/ChannelRequest.php.html#24"><abbr title="App\Http\Requests\ChannelRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/MovieRequest.php.html#14"><abbr title="App\Http\Requests\MovieRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/MovieRequest.php.html#24"><abbr title="App\Http\Requests\MovieRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/PasswordRequest.php.html#14"><abbr title="App\Http\Requests\PasswordRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/PasswordRequest.php.html#24"><abbr title="App\Http\Requests\PasswordRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/PlaylistRequest.php.html#14"><abbr title="App\Http\Requests\PlaylistRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/PlaylistRequest.php.html#24"><abbr title="App\Http\Requests\PlaylistRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/CommentController.php.html#102"><abbr title="App\Http\Controllers\Frontend\CommentController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/CommentController.php.html#53"><abbr title="App\Http\Controllers\Frontend\CommentController::getData">getData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/SourceController.php.html#28"><abbr title="App\Http\Controllers\Backend\SourceController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/UserController.php.html#64"><abbr title="App\Http\Controllers\Backend\UserController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/SourceController.php.html#37"><abbr title="App\Http\Controllers\Backend\SourceController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/SourceController.php.html#42"><abbr title="App\Http\Controllers\Backend\SourceController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/TypeController.php.html#16"><abbr title="App\Http\Controllers\Backend\TypeController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/TypeController.php.html#21"><abbr title="App\Http\Controllers\Backend\TypeController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/TypeController.php.html#26"><abbr title="App\Http\Controllers\Backend\TypeController::getData">getData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/TypeController.php.html#49"><abbr title="App\Http\Controllers\Backend\TypeController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/TypeController.php.html#54"><abbr title="App\Http\Controllers\Backend\TypeController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/TypeController.php.html#63"><abbr title="App\Http\Controllers\Backend\TypeController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/TypeController.php.html#68"><abbr title="App\Http\Controllers\Backend\TypeController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/TypeController.php.html#77"><abbr title="App\Http\Controllers\Backend\TypeController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/TypeController.php.html#85"><abbr title="App\Http\Controllers\Backend\TypeController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/UserController.php.html#25"><abbr title="App\Http\Controllers\Backend\UserController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/UserController.php.html#30"><abbr title="App\Http\Controllers\Backend\UserController::getData">getData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/UserController.php.html#74"><abbr title="App\Http\Controllers\Backend\UserController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/VideoController.php.html#145"><abbr title="App\Http\Controllers\Backend\VideoController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/UserController.php.html#83"><abbr title="App\Http\Controllers\Backend\UserController::changeStatus">changeStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/UserController.php.html#88"><abbr title="App\Http\Controllers\Backend\UserController::changePassword">changePassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/UserController.php.html#103"><abbr title="App\Http\Controllers\Backend\UserController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/VideoController.php.html#16"><abbr title="App\Http\Controllers\Backend\VideoController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/VideoController.php.html#21"><abbr title="App\Http\Controllers\Backend\VideoController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/VideoController.php.html#28"><abbr title="App\Http\Controllers\Backend\VideoController::getData">getData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/VideoController.php.html#59"><abbr title="App\Http\Controllers\Backend\VideoController::getSources">getSources</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/VideoController.php.html#94"><abbr title="App\Http\Controllers\Backend\VideoController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/VideoController.php.html#103"><abbr title="App\Http\Controllers\Backend\VideoController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/VideoController.php.html#111"><abbr title="App\Http\Controllers\Backend\VideoController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/VideoController.php.html#122"><abbr title="App\Http\Controllers\Backend\VideoController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/VideoController.php.html#131"><abbr title="App\Http\Controllers\Backend\VideoController::changeStatus">changeStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/VideoController.php.html#136"><abbr title="App\Http\Controllers\Backend\VideoController::detach">detach</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#190"><abbr title="App\Repositories\Video\VideoRepository::findChannel">findChannel</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#82"><abbr title="App\Http\Controllers\Frontend\MovieController::watchMovie">watchMovie</abbr></a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#19"><abbr title="App\Repositories\Video\VideoRepository::getVideos">getVideos</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#19"><abbr title="App\Repositories\Playlist\PlaylistRepository::getPlaylists">getPlaylists</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#27"><abbr title="App\Repositories\Movie\MovieRepository::getMovies">getMovies</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Repositories/Channel/ChannelReposirory.php.html#34"><abbr title="App\Repositories\Channel\ChannelRepository::getChannels">getChannels</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#139"><abbr title="App\Repositories\Playlist\PlaylistRepository::chooseVideo">chooseVideo</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Repositories/User/UserRepository.php.html#17"><abbr title="App\Repositories\User\UserRepository::getUsers">getUsers</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Repositories/Type/TypeRepository.php.html#16"><abbr title="App\Repositories\Type\TypeRepository::getTypes">getTypes</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Repositories/Source/SourceRepository.php.html#37"><abbr title="App\Repositories\Source\SourceRepository::sortSource">sortSource</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#313"><abbr title="App\Repositories\Movie\MovieRepository::deleteMovie">deleteMovie</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#349"><abbr title="App\Http\Controllers\Frontend\MovieController::filter">filter</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#75"><abbr title="App\Repositories\Playlist\PlaylistRepository::storePlaylist">storePlaylist</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#304"><abbr title="App\Http\Controllers\Frontend\MovieController::getDataForFilter">getDataForFilter</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#271"><abbr title="App\Http\Controllers\Frontend\MovieController::listMovie">listMovie</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#67"><abbr title="App\Http\Controllers\Frontend\MovieController::getOptionValueOfFilm">getOptionValueOfFilm</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/LoginController.php.html#48"><abbr title="App\Http\Controllers\Auth\LoginController::login">login</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#68"><abbr title="App\Repositories\Video\VideoRepository::storeVideo">storeVideo</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#110"><abbr title="App\Repositories\Playlist\PlaylistRepository::updatePlaylist">updatePlaylist</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#124"><abbr title="App\Repositories\Video\VideoRepository::updateVideo">updateVideo</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#276"><abbr title="App\Repositories\Movie\MovieRepository::updatePlaylist">updatePlaylist</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#168"><abbr title="App\Repositories\Playlist\PlaylistRepository::deletePlaylist">deletePlaylist</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#191"><abbr title="App\Repositories\Playlist\PlaylistRepository::changeStatus">changeStatus</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repositories/Source/SourceRepository.php.html#79"><abbr title="App\Repositories\Source\SourceRepository::deleteSource">deleteSource</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repositories/Type/TypeRepository.php.html#73"><abbr title="App\Repositories\Type\TypeRepository::getCountOfMovieFromType">getCountOfMovieFromType</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repositories/User/UserRepository.php.html#48"><abbr title="App\Repositories\User\UserRepository::changeStatus">changeStatus</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#148"><abbr title="App\Repositories\Video\VideoRepository::sortChap">sortChap</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#159"><abbr title="App\Repositories\Video\VideoRepository::changeStatus">changeStatus</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#228"><abbr title="App\Repositories\Movie\MovieRepository::updateMovie">updateMovie</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#185"><abbr title="App\Repositories\Movie\MovieRepository::storeTags">storeTags</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#141"><abbr title="App\Repositories\Movie\MovieRepository::storeMovie">storeMovie</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#77"><abbr title="App\Repositories\Movie\MovieRepository::getMoviePlaylists">getMoviePlaylists</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#53"><abbr title="App\Repositories\Movie\MovieRepository::changeNomination">changeNomination</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#96"><abbr title="App\Repositories\Movie\MovieRepository::getPlaylists">getPlaylists</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repositories/Channel/ChannelReposirory.php.html#16"><abbr title="App\Repositories\Channel\ChannelRepository::changeStatus">changeStatus</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/CommentController.php.html#102"><abbr title="App\Http\Controllers\Frontend\CommentController::destroy">destroy</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Middleware/CheckAdmin.php.html#17"><abbr title="App\Http\Middleware\CheckAdmin::handle">handle</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/UserController.php.html#88"><abbr title="App\Http\Controllers\Backend\UserController::changePassword">changePassword</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/CommentController.php.html#53"><abbr title="App\Http\Controllers\Frontend\CommentController::getData">getData</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/VideoController.php.html#136"><abbr title="App\Http\Controllers\Backend\VideoController::detach">detach</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repositories/Type/TypeRepository.php.html#48"><abbr title="App\Repositories\Type\TypeRepository::updateType">updateType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repositories/Type/TypeRepository.php.html#62"><abbr title="App\Repositories\Type\TypeRepository::deleteType">deleteType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/VideoController.php.html#28"><abbr title="App\Http\Controllers\Backend\VideoController::getData">getData</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/RequestController.php.html#18"><abbr title="App\Http\Controllers\Backend\RequestController::getData">getData</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/UserController.php.html#30"><abbr title="App\Http\Controllers\Backend\UserController::getData">getData</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/CommentController.php.html#79"><abbr title="App\Http\Controllers\Frontend\CommentController::getReplyData">getReplyData</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#49"><abbr title="App\Repositories\Video\VideoRepository::getSources">getSources</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#147"><abbr title="App\Http\Controllers\Backend\PlaylistController::update">update</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#112"><abbr title="App\Repositories\Video\VideoRepository::findVideo">findVideo</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/PlaylistController.php.html#30"><abbr title="App\Http\Controllers\Backend\PlaylistController::getData">getData</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#189"><abbr title="App\Http\Controllers\Backend\MovieController::edit">edit</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/MovieController.php.html#28"><abbr title="App\Http\Controllers\Backend\MovieController::getData">getData</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repositories/Source/SourceRepository.php.html#59"><abbr title="App\Repositories\Source\SourceRepository::updateSource">updateSource</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repositories/Rate/RateRepository.php.html#25"><abbr title="App\Repositories\Rate\RateRepository::updateMovie">updateMovie</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repositories/Source/SourceRepository.php.html#17"><abbr title="App\Repositories\Source\SourceRepository::storeSource">storeSource</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#420"><abbr title="App\Http\Controllers\Frontend\MovieController::searchTag">searchTag</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Backend/ChannelController.php.html#27"><abbr title="App\Http\Controllers\Backend\ChannelController::getData">getData</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#115"><abbr title="App\Repositories\Movie\MovieRepository::getVideos">getVideos</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repositories/BaseRepository.php.html#42"><abbr title="App\Repositories\BaseRepository::update">update</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#19"><abbr title="App\Http\Middleware\RedirectIfAuthenticated::handle">handle</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Middleware/Authenticate.php.html#15"><abbr title="App\Http\Middleware\Authenticate::redirectTo">redirectTo</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repositories/Movie/MovieRepository.php.html#301"><abbr title="App\Repositories\Movie\MovieRepository::updateVideo">updateVideo</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#402"><abbr title="App\Http\Controllers\Frontend\MovieController::search">search</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repositories/BaseRepository.php.html#53"><abbr title="App\Repositories\BaseRepository::delete">delete</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#47"><abbr title="App\Repositories\Playlist\PlaylistRepository::getPlaylistVideos">getPlaylistVideos</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repositories/Playlist/PlaylistRepository.php.html#61"><abbr title="App\Repositories\Playlist\PlaylistRepository::getVideos">getVideos</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#334"><abbr title="App\Http\Controllers\Frontend\MovieController::getMovieFromOption">getMovieFromOption</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#47"><abbr title="App\Http\Controllers\Frontend\MovieController::getMovieWithGenre">getMovieWithGenre</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/MovieController.php.html#19"><abbr title="App\Http\Controllers\Frontend\MovieController::index">index</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Frontend/HomeController.php.html#10"><abbr title="App\Http\Controllers\Frontend\HomeController::language">language</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repositories/Video/VideoRepository.php.html#177"><abbr title="App\Repositories\Video\VideoRepository::detach">detach</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 7.0.10</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.3</a> with <a href="https://xdebug.org/">Xdebug 2.9.2</a> and <a href="https://phpunit.de/">PHPUnit 8.5.8</a> at Tue Nov 24 16:07:37 +07 2020.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js" type="text/javascript"></script>
+  <script src="_js/d3.min.js" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([53,0,0,1,0,1,1,0,0,0,0,24], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([248,0,0,0,0,0,0,0,0,0,0,31], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,2,"<a href=\"Console\/Commands\/Statistical.php.html#10\">App\\Console\\Commands\\Statistical<\/a>"],[50,2,"<a href=\"Console\/Kernel.php.html#10\">App\\Console\\Kernel<\/a>"],[0,2,"<a href=\"Events\/NotificationEvent.php.html#13\">App\\Events\\NotificationEvent<\/a>"],[0,2,"<a href=\"Exceptions\/Handler.php.html#8\">App\\Exceptions\\Handler<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/ConfirmPasswordController.php.html#9\">App\\Http\\Controllers\\Auth\\ConfirmPasswordController<\/a>"],[100,0,"<a href=\"Http\/Controllers\/Auth\/ForgotPasswordController.php.html#8\">App\\Http\\Controllers\\Auth\\ForgotPasswordController<\/a>"],[0,8,"<a href=\"Http\/Controllers\/Auth\/LoginController.php.html#11\">App\\Http\\Controllers\\Auth\\LoginController<\/a>"],[0,4,"<a href=\"Http\/Controllers\/Auth\/RegisterController.php.html#12\">App\\Http\\Controllers\\Auth\\RegisterController<\/a>"],[100,0,"<a href=\"Http\/Controllers\/Auth\/ResetPasswordController.php.html#9\">App\\Http\\Controllers\\Auth\\ResetPasswordController<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/VerificationController.php.html#9\">App\\Http\\Controllers\\Auth\\VerificationController<\/a>"],[0,10,"<a href=\"Http\/Controllers\/Backend\/ChannelController.php.html#13\">App\\Http\\Controllers\\Backend\\ChannelController<\/a>"],[100,2,"<a href=\"Http\/Controllers\/Backend\/ChartController.php.html#8\">App\\Http\\Controllers\\Backend\\ChartController<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Backend\/DashboardController.php.html#14\">App\\Http\\Controllers\\Backend\\DashboardController<\/a>"],[0,17,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#14\">App\\Http\\Controllers\\Backend\\MovieController<\/a>"],[0,16,"<a href=\"Http\/Controllers\/Backend\/PlaylistController.php.html#14\">App\\Http\\Controllers\\Backend\\PlaylistController<\/a>"],[0,5,"<a href=\"Http\/Controllers\/Backend\/RequestController.php.html#11\">App\\Http\\Controllers\\Backend\\RequestController<\/a>"],[0,5,"<a href=\"Http\/Controllers\/Backend\/SourceController.php.html#12\">App\\Http\\Controllers\\Backend\\SourceController<\/a>"],[0,9,"<a href=\"Http\/Controllers\/Backend\/TypeController.php.html#12\">App\\Http\\Controllers\\Backend\\TypeController<\/a>"],[21.27659574468085,13,"<a href=\"Http\/Controllers\/Backend\/UserController.php.html#16\">App\\Http\\Controllers\\Backend\\UserController<\/a>"],[0,13,"<a href=\"Http\/Controllers\/Backend\/VideoController.php.html#12\">App\\Http\\Controllers\\Backend\\VideoController<\/a>"],[100,0,"<a href=\"Http\/Controllers\/Controller.php.html#10\">App\\Http\\Controllers\\Controller<\/a>"],[41.02564102564102,10,"<a href=\"Http\/Controllers\/Frontend\/CommentController.php.html#14\">App\\Http\\Controllers\\Frontend\\CommentController<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Frontend\/HomeController.php.html#8\">App\\Http\\Controllers\\Frontend\\HomeController<\/a>"],[0,43,"<a href=\"Http\/Controllers\/Frontend\/MovieController.php.html#17\">App\\Http\\Controllers\\Frontend\\MovieController<\/a>"],[100,5,"<a href=\"Http\/Controllers\/Frontend\/RateController.php.html#12\">App\\Http\\Controllers\\Frontend\\RateController<\/a>"],[0,2,"<a href=\"Http\/Controllers\/HomeController.php.html#7\">App\\Http\\Controllers\\HomeController<\/a>"],[100,0,"<a href=\"Http\/Kernel.php.html#7\">App\\Http\\Kernel<\/a>"],[0,2,"<a href=\"Http\/Middleware\/Authenticate.php.html#7\">App\\Http\\Middleware\\Authenticate<\/a>"],[0,3,"<a href=\"Http\/Middleware\/CheckAdmin.php.html#8\">App\\Http\\Middleware\\CheckAdmin<\/a>"],[100,0,"<a href=\"Http\/Middleware\/CheckForMaintenanceMode.php.html#7\">App\\Http\\Middleware\\CheckForMaintenanceMode<\/a>"],[100,0,"<a href=\"Http\/Middleware\/EncryptCookies.php.html#7\">App\\Http\\Middleware\\EncryptCookies<\/a>"],[0,1,"<a href=\"Http\/Middleware\/Language.php.html#8\">App\\Http\\Middleware\\Language<\/a>"],[0,2,"<a href=\"Http\/Middleware\/RedirectIfAuthenticated.php.html#9\">App\\Http\\Middleware\\RedirectIfAuthenticated<\/a>"],[100,0,"<a href=\"Http\/Middleware\/TrimStrings.php.html#7\">App\\Http\\Middleware\\TrimStrings<\/a>"],[0,1,"<a href=\"Http\/Middleware\/TrustHosts.php.html#7\">App\\Http\\Middleware\\TrustHosts<\/a>"],[100,0,"<a href=\"Http\/Middleware\/TrustProxies.php.html#8\">App\\Http\\Middleware\\TrustProxies<\/a>"],[100,0,"<a href=\"Http\/Middleware\/VerifyCsrfToken.php.html#7\">App\\Http\\Middleware\\VerifyCsrfToken<\/a>"],[0,2,"<a href=\"Http\/Requests\/ChannelRequest.php.html#7\">App\\Http\\Requests\\ChannelRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/MovieRequest.php.html#7\">App\\Http\\Requests\\MovieRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/PasswordRequest.php.html#7\">App\\Http\\Requests\\PasswordRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/PlaylistRequest.php.html#7\">App\\Http\\Requests\\PlaylistRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/ReqRequest.php.html#7\">App\\Http\\Requests\\ReqRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/SourceRequest.php.html#7\">App\\Http\\Requests\\SourceRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/TypeRequest.php.html#8\">App\\Http\\Requests\\TypeRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/UserRequest.php.html#7\">App\\Http\\Requests\\UserRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/VideoRequest.php.html#7\">App\\Http\\Requests\\VideoRequest<\/a>"],[0,2,"<a href=\"Http\/ViewComposers\/MovieComposer.php.html#8\">App\\Http\\ViewComposers\\MovieComposer<\/a>"],[0,2,"<a href=\"Jobs\/SendForgetPasswordEmail.php.html#12\">App\\Jobs\\SendForgetPasswordEmail<\/a>"],[0,2,"<a href=\"Jobs\/SendStatisticalEmail.php.html#12\">App\\Jobs\\SendStatisticalEmail<\/a>"],[100,1,"<a href=\"Models\/Channel.php.html#8\">App\\Models\\Channel<\/a>"],[0,2,"<a href=\"Models\/Comment.php.html#7\">App\\Models\\Comment<\/a>"],[100,1,"<a href=\"Models\/History.php.html#8\">App\\Models\\History<\/a>"],[0,7,"<a href=\"Models\/Movie.php.html#8\">App\\Models\\Movie<\/a>"],[100,1,"<a href=\"Models\/Option.php.html#8\">App\\Models\\Option<\/a>"],[100,1,"<a href=\"Models\/OptionValue.php.html#8\">App\\Models\\OptionValue<\/a>"],[100,2,"<a href=\"Models\/Playlist.php.html#8\">App\\Models\\Playlist<\/a>"],[0,1,"<a href=\"Models\/Rate.php.html#7\">App\\Models\\Rate<\/a>"],[0,1,"<a href=\"Models\/Req.php.html#8\">App\\Models\\Req<\/a>"],[0,3,"<a href=\"Models\/Source.php.html#8\">App\\Models\\Source<\/a>"],[100,1,"<a href=\"Models\/Tag.php.html#8\">App\\Models\\Tag<\/a>"],[100,1,"<a href=\"Models\/Type.php.html#8\">App\\Models\\Type<\/a>"],[0,1,"<a href=\"Models\/User.php.html#10\">App\\Models\\User<\/a>"],[0,4,"<a href=\"Models\/Video.php.html#8\">App\\Models\\Video<\/a>"],[0,3,"<a href=\"Notifications\/CommentNotification.php.html#10\">App\\Notifications\\CommentNotification<\/a>"],[100,2,"<a href=\"Providers\/AppServiceProvider.php.html#25\">App\\Providers\\AppServiceProvider<\/a>"],[100,1,"<a href=\"Providers\/AuthServiceProvider.php.html#8\">App\\Providers\\AuthServiceProvider<\/a>"],[100,1,"<a href=\"Providers\/BroadcastServiceProvider.php.html#8\">App\\Providers\\BroadcastServiceProvider<\/a>"],[100,2,"<a href=\"Providers\/ComposerServiceProvider.php.html#9\">App\\Providers\\ComposerServiceProvider<\/a>"],[100,1,"<a href=\"Providers\/EventServiceProvider.php.html#10\">App\\Providers\\EventServiceProvider<\/a>"],[100,4,"<a href=\"Providers\/RouteServiceProvider.php.html#8\">App\\Providers\\RouteServiceProvider<\/a>"],[0,10,"<a href=\"Repositories\/BaseRepository.php.html#7\">App\\Repositories\\BaseRepository<\/a>"],[0,12,"<a href=\"Repositories\/Channel\/ChannelReposirory.php.html#9\">App\\Repositories\\Channel\\ChannelRepository<\/a>"],[0,7,"<a href=\"Repositories\/Comment\/CommentRepository.php.html#10\">App\\Repositories\\Comment\\CommentRepository<\/a>"],[0,51,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#20\">App\\Repositories\\Movie\\MovieRepository<\/a>"],[0,37,"<a href=\"Repositories\/Playlist\/PlaylistRepository.php.html#12\">App\\Repositories\\Playlist\\PlaylistRepository<\/a>"],[0,6,"<a href=\"Repositories\/Rate\/RateRepository.php.html#8\">App\\Repositories\\Rate\\RateRepository<\/a>"],[0,14,"<a href=\"Repositories\/Source\/SourceRepository.php.html#10\">App\\Repositories\\Source\\SourceRepository<\/a>"],[0,15,"<a href=\"Repositories\/Type\/TypeRepository.php.html#9\">App\\Repositories\\Type\\TypeRepository<\/a>"],[0,14,"<a href=\"Repositories\/User\/UserRepository.php.html#10\">App\\Repositories\\User\\UserRepository<\/a>"],[0,33,"<a href=\"Repositories\/Video\/VideoRepository.php.html#12\">App\\Repositories\\Video\\VideoRepository<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Console\/Commands\/Statistical.php.html#31\">App\\Console\\Commands\\Statistical::__construct<\/a>"],[0,1,"<a href=\"Console\/Commands\/Statistical.php.html#43\">App\\Console\\Commands\\Statistical::handle<\/a>"],[0,1,"<a href=\"Console\/Kernel.php.html#27\">App\\Console\\Kernel::schedule<\/a>"],[100,1,"<a href=\"Console\/Kernel.php.html#38\">App\\Console\\Kernel::commands<\/a>"],[0,1,"<a href=\"Events\/NotificationEvent.php.html#23\">App\\Events\\NotificationEvent::__construct<\/a>"],[0,1,"<a href=\"Events\/NotificationEvent.php.html#33\">App\\Events\\NotificationEvent::broadcastOn<\/a>"],[0,1,"<a href=\"Exceptions\/Handler.php.html#37\">App\\Exceptions\\Handler::report<\/a>"],[0,1,"<a href=\"Exceptions\/Handler.php.html#51\">App\\Exceptions\\Handler::render<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/ConfirmPasswordController.php.html#36\">App\\Http\\Controllers\\Auth\\ConfirmPasswordController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/LoginController.php.html#38\">App\\Http\\Controllers\\Auth\\LoginController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/LoginController.php.html#43\">App\\Http\\Controllers\\Auth\\LoginController::showLoginForm<\/a>"],[0,5,"<a href=\"Http\/Controllers\/Auth\/LoginController.php.html#48\">App\\Http\\Controllers\\Auth\\LoginController::login<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/LoginController.php.html#68\">App\\Http\\Controllers\\Auth\\LoginController::logout<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/RegisterController.php.html#39\">App\\Http\\Controllers\\Auth\\RegisterController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/RegisterController.php.html#50\">App\\Http\\Controllers\\Auth\\RegisterController::validator<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/RegisterController.php.html#66\">App\\Http\\Controllers\\Auth\\RegisterController::create<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/RegisterController.php.html#77\">App\\Http\\Controllers\\Auth\\RegisterController::showRegistrationForm<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/VerificationController.php.html#36\">App\\Http\\Controllers\\Auth\\VerificationController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/ChannelController.php.html#17\">App\\Http\\Controllers\\Backend\\ChannelController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/ChannelController.php.html#22\">App\\Http\\Controllers\\Backend\\ChannelController::index<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Backend\/ChannelController.php.html#27\">App\\Http\\Controllers\\Backend\\ChannelController::getData<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/ChannelController.php.html#58\">App\\Http\\Controllers\\Backend\\ChannelController::create<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/ChannelController.php.html#67\">App\\Http\\Controllers\\Backend\\ChannelController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/ChannelController.php.html#79\">App\\Http\\Controllers\\Backend\\ChannelController::edit<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/ChannelController.php.html#90\">App\\Http\\Controllers\\Backend\\ChannelController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/ChannelController.php.html#101\">App\\Http\\Controllers\\Backend\\ChannelController::changeStatus<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/ChannelController.php.html#106\">App\\Http\\Controllers\\Backend\\ChannelController::destroy<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Backend\/ChartController.php.html#12\">App\\Http\\Controllers\\Backend\\ChartController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Backend\/ChartController.php.html#17\">App\\Http\\Controllers\\Backend\\ChartController::index<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/DashboardController.php.html#16\">App\\Http\\Controllers\\Backend\\DashboardController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/DashboardController.php.html#20\">App\\Http\\Controllers\\Backend\\DashboardController::home<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#18\">App\\Http\\Controllers\\Backend\\MovieController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#23\">App\\Http\\Controllers\\Backend\\MovieController::index<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#28\">App\\Http\\Controllers\\Backend\\MovieController::getData<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#63\">App\\Http\\Controllers\\Backend\\MovieController::nominations<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#68\">App\\Http\\Controllers\\Backend\\MovieController::getTags<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#76\">App\\Http\\Controllers\\Backend\\MovieController::getMoviePlaylists<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#116\">App\\Http\\Controllers\\Backend\\MovieController::getPlaylists<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#142\">App\\Http\\Controllers\\Backend\\MovieController::getVideos<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#165\">App\\Http\\Controllers\\Backend\\MovieController::create<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#180\">App\\Http\\Controllers\\Backend\\MovieController::store<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#189\">App\\Http\\Controllers\\Backend\\MovieController::edit<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#224\">App\\Http\\Controllers\\Backend\\MovieController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#233\">App\\Http\\Controllers\\Backend\\MovieController::updatePlaylist<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#238\">App\\Http\\Controllers\\Backend\\MovieController::updateVideo<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/MovieController.php.html#245\">App\\Http\\Controllers\\Backend\\MovieController::destroy<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/PlaylistController.php.html#18\">App\\Http\\Controllers\\Backend\\PlaylistController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/PlaylistController.php.html#23\">App\\Http\\Controllers\\Backend\\PlaylistController::index<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Backend\/PlaylistController.php.html#30\">App\\Http\\Controllers\\Backend\\PlaylistController::getData<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/PlaylistController.php.html#60\">App\\Http\\Controllers\\Backend\\PlaylistController::getPlaylistVideos<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/PlaylistController.php.html#90\">App\\Http\\Controllers\\Backend\\PlaylistController::getVideos<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/PlaylistController.php.html#111\">App\\Http\\Controllers\\Backend\\PlaylistController::create<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/PlaylistController.php.html#116\">App\\Http\\Controllers\\Backend\\PlaylistController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/PlaylistController.php.html#124\">App\\Http\\Controllers\\Backend\\PlaylistController::show<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/PlaylistController.php.html#134\">App\\Http\\Controllers\\Backend\\PlaylistController::edit<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Backend\/PlaylistController.php.html#147\">App\\Http\\Controllers\\Backend\\PlaylistController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/PlaylistController.php.html#162\">App\\Http\\Controllers\\Backend\\PlaylistController::chooseVideo<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/PlaylistController.php.html#169\">App\\Http\\Controllers\\Backend\\PlaylistController::destroy<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/PlaylistController.php.html#177\">App\\Http\\Controllers\\Backend\\PlaylistController::detach<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/PlaylistController.php.html#185\">App\\Http\\Controllers\\Backend\\PlaylistController::changeStatus<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/RequestController.php.html#13\">App\\Http\\Controllers\\Backend\\RequestController::index<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Backend\/RequestController.php.html#18\">App\\Http\\Controllers\\Backend\\RequestController::getData<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/RequestController.php.html#52\">App\\Http\\Controllers\\Backend\\RequestController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/RequestController.php.html#63\">App\\Http\\Controllers\\Backend\\RequestController::destroy<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/SourceController.php.html#16\">App\\Http\\Controllers\\Backend\\SourceController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/SourceController.php.html#21\">App\\Http\\Controllers\\Backend\\SourceController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/SourceController.php.html#28\">App\\Http\\Controllers\\Backend\\SourceController::edit<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/SourceController.php.html#37\">App\\Http\\Controllers\\Backend\\SourceController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/SourceController.php.html#42\">App\\Http\\Controllers\\Backend\\SourceController::destroy<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/TypeController.php.html#16\">App\\Http\\Controllers\\Backend\\TypeController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/TypeController.php.html#21\">App\\Http\\Controllers\\Backend\\TypeController::index<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/TypeController.php.html#26\">App\\Http\\Controllers\\Backend\\TypeController::getData<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/TypeController.php.html#49\">App\\Http\\Controllers\\Backend\\TypeController::create<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/TypeController.php.html#54\">App\\Http\\Controllers\\Backend\\TypeController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/TypeController.php.html#63\">App\\Http\\Controllers\\Backend\\TypeController::show<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/TypeController.php.html#68\">App\\Http\\Controllers\\Backend\\TypeController::edit<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/TypeController.php.html#77\">App\\Http\\Controllers\\Backend\\TypeController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/TypeController.php.html#85\">App\\Http\\Controllers\\Backend\\TypeController::destroy<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Backend\/UserController.php.html#20\">App\\Http\\Controllers\\Backend\\UserController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/UserController.php.html#25\">App\\Http\\Controllers\\Backend\\UserController::index<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Backend\/UserController.php.html#30\">App\\Http\\Controllers\\Backend\\UserController::getData<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/UserController.php.html#64\">App\\Http\\Controllers\\Backend\\UserController::edit<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/UserController.php.html#74\">App\\Http\\Controllers\\Backend\\UserController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/UserController.php.html#83\">App\\Http\\Controllers\\Backend\\UserController::changeStatus<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Backend\/UserController.php.html#88\">App\\Http\\Controllers\\Backend\\UserController::changePassword<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/UserController.php.html#103\">App\\Http\\Controllers\\Backend\\UserController::destroy<\/a>"],[100,2,"<a href=\"Http\/Controllers\/Backend\/UserController.php.html#111\">App\\Http\\Controllers\\Backend\\UserController::sendEmailForgotPassword<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Backend\/UserController.php.html#124\">App\\Http\\Controllers\\Backend\\UserController::getFormForgotPassword<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/VideoController.php.html#16\">App\\Http\\Controllers\\Backend\\VideoController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/VideoController.php.html#21\">App\\Http\\Controllers\\Backend\\VideoController::index<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Backend\/VideoController.php.html#28\">App\\Http\\Controllers\\Backend\\VideoController::getData<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/VideoController.php.html#59\">App\\Http\\Controllers\\Backend\\VideoController::getSources<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/VideoController.php.html#94\">App\\Http\\Controllers\\Backend\\VideoController::create<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/VideoController.php.html#103\">App\\Http\\Controllers\\Backend\\VideoController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/VideoController.php.html#111\">App\\Http\\Controllers\\Backend\\VideoController::edit<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/VideoController.php.html#122\">App\\Http\\Controllers\\Backend\\VideoController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/VideoController.php.html#131\">App\\Http\\Controllers\\Backend\\VideoController::changeStatus<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Backend\/VideoController.php.html#136\">App\\Http\\Controllers\\Backend\\VideoController::detach<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Backend\/VideoController.php.html#145\">App\\Http\\Controllers\\Backend\\VideoController::destroy<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Frontend\/CommentController.php.html#18\">App\\Http\\Controllers\\Frontend\\CommentController::__construct<\/a>"],[100,2,"<a href=\"Http\/Controllers\/Frontend\/CommentController.php.html#23\">App\\Http\\Controllers\\Frontend\\CommentController::store<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Frontend\/CommentController.php.html#53\">App\\Http\\Controllers\\Frontend\\CommentController::getData<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Frontend\/CommentController.php.html#79\">App\\Http\\Controllers\\Frontend\\CommentController::getReplyData<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Frontend\/CommentController.php.html#102\">App\\Http\\Controllers\\Frontend\\CommentController::destroy<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Frontend\/HomeController.php.html#10\">App\\Http\\Controllers\\Frontend\\HomeController::language<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Frontend\/MovieController.php.html#19\">App\\Http\\Controllers\\Frontend\\MovieController::index<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Frontend\/MovieController.php.html#47\">App\\Http\\Controllers\\Frontend\\MovieController::getMovieWithGenre<\/a>"],[0,5,"<a href=\"Http\/Controllers\/Frontend\/MovieController.php.html#67\">App\\Http\\Controllers\\Frontend\\MovieController::getOptionValueOfFilm<\/a>"],[0,12,"<a href=\"Http\/Controllers\/Frontend\/MovieController.php.html#82\">App\\Http\\Controllers\\Frontend\\MovieController::watchMovie<\/a>"],[0,5,"<a href=\"Http\/Controllers\/Frontend\/MovieController.php.html#271\">App\\Http\\Controllers\\Frontend\\MovieController::listMovie<\/a>"],[0,5,"<a href=\"Http\/Controllers\/Frontend\/MovieController.php.html#304\">App\\Http\\Controllers\\Frontend\\MovieController::getDataForFilter<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Frontend\/MovieController.php.html#321\">App\\Http\\Controllers\\Frontend\\MovieController::getOptionValue<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Frontend\/MovieController.php.html#334\">App\\Http\\Controllers\\Frontend\\MovieController::getMovieFromOption<\/a>"],[0,5,"<a href=\"Http\/Controllers\/Frontend\/MovieController.php.html#349\">App\\Http\\Controllers\\Frontend\\MovieController::filter<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Frontend\/MovieController.php.html#402\">App\\Http\\Controllers\\Frontend\\MovieController::search<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Frontend\/MovieController.php.html#420\">App\\Http\\Controllers\\Frontend\\MovieController::searchTag<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Frontend\/RateController.php.html#16\">App\\Http\\Controllers\\Frontend\\RateController::__construct<\/a>"],[100,2,"<a href=\"Http\/Controllers\/Frontend\/RateController.php.html#20\">App\\Http\\Controllers\\Frontend\\RateController::rate<\/a>"],[100,2,"<a href=\"Http\/Controllers\/Frontend\/RateController.php.html#36\">App\\Http\\Controllers\\Frontend\\RateController::takeAverageRate<\/a>"],[0,1,"<a href=\"Http\/Controllers\/HomeController.php.html#14\">App\\Http\\Controllers\\HomeController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/HomeController.php.html#24\">App\\Http\\Controllers\\HomeController::index<\/a>"],[0,2,"<a href=\"Http\/Middleware\/Authenticate.php.html#15\">App\\Http\\Middleware\\Authenticate::redirectTo<\/a>"],[0,3,"<a href=\"Http\/Middleware\/CheckAdmin.php.html#17\">App\\Http\\Middleware\\CheckAdmin::handle<\/a>"],[0,1,"<a href=\"Http\/Middleware\/Language.php.html#17\">App\\Http\\Middleware\\Language::handle<\/a>"],[0,2,"<a href=\"Http\/Middleware\/RedirectIfAuthenticated.php.html#19\">App\\Http\\Middleware\\RedirectIfAuthenticated::handle<\/a>"],[0,1,"<a href=\"Http\/Middleware\/TrustHosts.php.html#14\">App\\Http\\Middleware\\TrustHosts::hosts<\/a>"],[0,1,"<a href=\"Http\/Requests\/ChannelRequest.php.html#14\">App\\Http\\Requests\\ChannelRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/ChannelRequest.php.html#24\">App\\Http\\Requests\\ChannelRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/MovieRequest.php.html#14\">App\\Http\\Requests\\MovieRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/MovieRequest.php.html#24\">App\\Http\\Requests\\MovieRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/PasswordRequest.php.html#14\">App\\Http\\Requests\\PasswordRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/PasswordRequest.php.html#24\">App\\Http\\Requests\\PasswordRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/PlaylistRequest.php.html#14\">App\\Http\\Requests\\PlaylistRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/PlaylistRequest.php.html#24\">App\\Http\\Requests\\PlaylistRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/ReqRequest.php.html#14\">App\\Http\\Requests\\ReqRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/ReqRequest.php.html#24\">App\\Http\\Requests\\ReqRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/SourceRequest.php.html#14\">App\\Http\\Requests\\SourceRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/SourceRequest.php.html#24\">App\\Http\\Requests\\SourceRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/TypeRequest.php.html#15\">App\\Http\\Requests\\TypeRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/TypeRequest.php.html#25\">App\\Http\\Requests\\TypeRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/UserRequest.php.html#14\">App\\Http\\Requests\\UserRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/UserRequest.php.html#24\">App\\Http\\Requests\\UserRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/VideoRequest.php.html#14\">App\\Http\\Requests\\VideoRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/VideoRequest.php.html#24\">App\\Http\\Requests\\VideoRequest::rules<\/a>"],[0,1,"<a href=\"Http\/ViewComposers\/MovieComposer.php.html#12\">App\\Http\\ViewComposers\\MovieComposer::__construct<\/a>"],[0,1,"<a href=\"Http\/ViewComposers\/MovieComposer.php.html#21\">App\\Http\\ViewComposers\\MovieComposer::compose<\/a>"],[0,1,"<a href=\"Jobs\/SendForgetPasswordEmail.php.html#19\">App\\Jobs\\SendForgetPasswordEmail::__construct<\/a>"],[0,1,"<a href=\"Jobs\/SendForgetPasswordEmail.php.html#25\">App\\Jobs\\SendForgetPasswordEmail::handle<\/a>"],[0,1,"<a href=\"Jobs\/SendStatisticalEmail.php.html#19\">App\\Jobs\\SendStatisticalEmail::__construct<\/a>"],[0,1,"<a href=\"Jobs\/SendStatisticalEmail.php.html#30\">App\\Jobs\\SendStatisticalEmail::handle<\/a>"],[100,1,"<a href=\"Models\/Channel.php.html#21\">App\\Models\\Channel::sources<\/a>"],[0,1,"<a href=\"Models\/Comment.php.html#13\">App\\Models\\Comment::movie<\/a>"],[0,1,"<a href=\"Models\/Comment.php.html#18\">App\\Models\\Comment::user<\/a>"],[100,1,"<a href=\"Models\/History.php.html#12\">App\\Models\\History::video<\/a>"],[0,1,"<a href=\"Models\/Movie.php.html#29\">App\\Models\\Movie::tags<\/a>"],[0,1,"<a href=\"Models\/Movie.php.html#34\">App\\Models\\Movie::types<\/a>"],[0,1,"<a href=\"Models\/Movie.php.html#39\">App\\Models\\Movie::videos<\/a>"],[0,1,"<a href=\"Models\/Movie.php.html#44\">App\\Models\\Movie::sources<\/a>"],[0,1,"<a href=\"Models\/Movie.php.html#49\">App\\Models\\Movie::playlists<\/a>"],[0,1,"<a href=\"Models\/Movie.php.html#54\">App\\Models\\Movie::comments<\/a>"],[0,1,"<a href=\"Models\/Movie.php.html#59\">App\\Models\\Movie::rates<\/a>"],[100,1,"<a href=\"Models\/Option.php.html#10\">App\\Models\\Option::optionValues<\/a>"],[100,1,"<a href=\"Models\/OptionValue.php.html#12\">App\\Models\\OptionValue::option<\/a>"],[100,1,"<a href=\"Models\/Playlist.php.html#21\">App\\Models\\Playlist::movie<\/a>"],[100,1,"<a href=\"Models\/Playlist.php.html#26\">App\\Models\\Playlist::videos<\/a>"],[0,1,"<a href=\"Models\/Rate.php.html#15\">App\\Models\\Rate::movie<\/a>"],[0,1,"<a href=\"Models\/Req.php.html#12\">App\\Models\\Req::user<\/a>"],[0,1,"<a href=\"Models\/Source.php.html#22\">App\\Models\\Source::movie<\/a>"],[0,1,"<a href=\"Models\/Source.php.html#27\">App\\Models\\Source::channel<\/a>"],[0,1,"<a href=\"Models\/Source.php.html#32\">App\\Models\\Source::video<\/a>"],[100,1,"<a href=\"Models\/Tag.php.html#17\">App\\Models\\Tag::movies<\/a>"],[100,1,"<a href=\"Models\/Type.php.html#13\">App\\Models\\Type::movies<\/a>"],[0,1,"<a href=\"Models\/User.php.html#33\">App\\Models\\User::requests<\/a>"],[0,1,"<a href=\"Models\/Video.php.html#23\">App\\Models\\Video::movie<\/a>"],[0,1,"<a href=\"Models\/Video.php.html#28\">App\\Models\\Video::sources<\/a>"],[0,1,"<a href=\"Models\/Video.php.html#33\">App\\Models\\Video::playlist<\/a>"],[0,1,"<a href=\"Models\/Video.php.html#38\">App\\Models\\Video::histories<\/a>"],[0,1,"<a href=\"Notifications\/CommentNotification.php.html#16\">App\\Notifications\\CommentNotification::__construct<\/a>"],[0,1,"<a href=\"Notifications\/CommentNotification.php.html#21\">App\\Notifications\\CommentNotification::via<\/a>"],[0,1,"<a href=\"Notifications\/CommentNotification.php.html#26\">App\\Notifications\\CommentNotification::toArray<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#32\">App\\Providers\\AppServiceProvider::register<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#77\">App\\Providers\\AppServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/AuthServiceProvider.php.html#24\">App\\Providers\\AuthServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/BroadcastServiceProvider.php.html#15\">App\\Providers\\BroadcastServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/ComposerServiceProvider.php.html#16\">App\\Providers\\ComposerServiceProvider::register<\/a>"],[100,1,"<a href=\"Providers\/ComposerServiceProvider.php.html#26\">App\\Providers\\ComposerServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/EventServiceProvider.php.html#28\">App\\Providers\\EventServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/RouteServiceProvider.php.html#31\">App\\Providers\\RouteServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/RouteServiceProvider.php.html#43\">App\\Providers\\RouteServiceProvider::map<\/a>"],[100,1,"<a href=\"Providers\/RouteServiceProvider.php.html#59\">App\\Providers\\RouteServiceProvider::mapWebRoutes<\/a>"],[100,1,"<a href=\"Providers\/RouteServiceProvider.php.html#73\">App\\Providers\\RouteServiceProvider::mapApiRoutes<\/a>"],[0,1,"<a href=\"Repositories\/BaseRepository.php.html#11\">App\\Repositories\\BaseRepository::__construct<\/a>"],[100,1,"<a href=\"Repositories\/BaseRepository.php.html#16\">App\\Repositories\\BaseRepository::getModel<\/a>"],[0,1,"<a href=\"Repositories\/BaseRepository.php.html#18\">App\\Repositories\\BaseRepository::setModel<\/a>"],[0,1,"<a href=\"Repositories\/BaseRepository.php.html#25\">App\\Repositories\\BaseRepository::getAll<\/a>"],[0,1,"<a href=\"Repositories\/BaseRepository.php.html#30\">App\\Repositories\\BaseRepository::find<\/a>"],[0,1,"<a href=\"Repositories\/BaseRepository.php.html#37\">App\\Repositories\\BaseRepository::create<\/a>"],[0,2,"<a href=\"Repositories\/BaseRepository.php.html#42\">App\\Repositories\\BaseRepository::update<\/a>"],[0,2,"<a href=\"Repositories\/BaseRepository.php.html#53\">App\\Repositories\\BaseRepository::delete<\/a>"],[0,1,"<a href=\"Repositories\/Channel\/ChannelReposirory.php.html#11\">App\\Repositories\\Channel\\ChannelRepository::getModel<\/a>"],[0,3,"<a href=\"Repositories\/Channel\/ChannelReposirory.php.html#16\">App\\Repositories\\Channel\\ChannelRepository::changeStatus<\/a>"],[0,7,"<a href=\"Repositories\/Channel\/ChannelReposirory.php.html#34\">App\\Repositories\\Channel\\ChannelRepository::getChannels<\/a>"],[0,1,"<a href=\"Repositories\/Channel\/ChannelReposirory.php.html#59\">App\\Repositories\\Channel\\ChannelRepository::getChannelTypes<\/a>"],[0,1,"<a href=\"Repositories\/Comment\/CommentRepository.php.html#12\">App\\Repositories\\Comment\\CommentRepository::getModel<\/a>"],[0,1,"<a href=\"Repositories\/Comment\/CommentRepository.php.html#17\">App\\Repositories\\Comment\\CommentRepository::storeComment<\/a>"],[0,1,"<a href=\"Repositories\/Comment\/CommentRepository.php.html#28\">App\\Repositories\\Comment\\CommentRepository::getUser<\/a>"],[0,1,"<a href=\"Repositories\/Comment\/CommentRepository.php.html#33\">App\\Repositories\\Comment\\CommentRepository::getMovie<\/a>"],[0,1,"<a href=\"Repositories\/Comment\/CommentRepository.php.html#38\">App\\Repositories\\Comment\\CommentRepository::getComments<\/a>"],[0,1,"<a href=\"Repositories\/Comment\/CommentRepository.php.html#52\">App\\Repositories\\Comment\\CommentRepository::getReplyComments<\/a>"],[0,1,"<a href=\"Repositories\/Comment\/CommentRepository.php.html#62\">App\\Repositories\\Comment\\CommentRepository::storeNotification<\/a>"],[0,1,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#22\">App\\Repositories\\Movie\\MovieRepository::getModel<\/a>"],[0,8,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#27\">App\\Repositories\\Movie\\MovieRepository::getMovies<\/a>"],[0,3,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#53\">App\\Repositories\\Movie\\MovieRepository::changeNomination<\/a>"],[0,1,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#70\">App\\Repositories\\Movie\\MovieRepository::getTags<\/a>"],[0,3,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#77\">App\\Repositories\\Movie\\MovieRepository::getMoviePlaylists<\/a>"],[0,3,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#96\">App\\Repositories\\Movie\\MovieRepository::getPlaylists<\/a>"],[0,2,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#115\">App\\Repositories\\Movie\\MovieRepository::getVideos<\/a>"],[0,1,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#133\">App\\Repositories\\Movie\\MovieRepository::getOptionValue<\/a>"],[0,3,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#141\">App\\Repositories\\Movie\\MovieRepository::storeMovie<\/a>"],[0,1,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#176\">App\\Repositories\\Movie\\MovieRepository::storeImages<\/a>"],[0,3,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#185\">App\\Repositories\\Movie\\MovieRepository::storeTags<\/a>"],[0,1,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#203\">App\\Repositories\\Movie\\MovieRepository::getChannels<\/a>"],[0,1,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#208\">App\\Repositories\\Movie\\MovieRepository::getTypes<\/a>"],[0,1,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#213\">App\\Repositories\\Movie\\MovieRepository::getMovieTags<\/a>"],[0,1,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#218\">App\\Repositories\\Movie\\MovieRepository::getMovieTypes<\/a>"],[0,1,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#223\">App\\Repositories\\Movie\\MovieRepository::getMovieVideos<\/a>"],[0,3,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#228\">App\\Repositories\\Movie\\MovieRepository::updateMovie<\/a>"],[0,1,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#259\">App\\Repositories\\Movie\\MovieRepository::updateTags<\/a>"],[0,1,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#265\">App\\Repositories\\Movie\\MovieRepository::updateImage<\/a>"],[0,4,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#276\">App\\Repositories\\Movie\\MovieRepository::updatePlaylist<\/a>"],[0,2,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#301\">App\\Repositories\\Movie\\MovieRepository::updateVideo<\/a>"],[0,5,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#313\">App\\Repositories\\Movie\\MovieRepository::deleteMovie<\/a>"],[0,1,"<a href=\"Repositories\/Movie\/MovieRepository.php.html#336\">App\\Repositories\\Movie\\MovieRepository::getNewMovieInMonth<\/a>"],[0,1,"<a href=\"Repositories\/Playlist\/PlaylistRepository.php.html#14\">App\\Repositories\\Playlist\\PlaylistRepository::getModel<\/a>"],[0,8,"<a href=\"Repositories\/Playlist\/PlaylistRepository.php.html#19\">App\\Repositories\\Playlist\\PlaylistRepository::getPlaylists<\/a>"],[0,2,"<a href=\"Repositories\/Playlist\/PlaylistRepository.php.html#47\">App\\Repositories\\Playlist\\PlaylistRepository::getPlaylistVideos<\/a>"],[0,2,"<a href=\"Repositories\/Playlist\/PlaylistRepository.php.html#61\">App\\Repositories\\Playlist\\PlaylistRepository::getVideos<\/a>"],[0,5,"<a href=\"Repositories\/Playlist\/PlaylistRepository.php.html#75\">App\\Repositories\\Playlist\\PlaylistRepository::storePlaylist<\/a>"],[0,1,"<a href=\"Repositories\/Playlist\/PlaylistRepository.php.html#105\">App\\Repositories\\Playlist\\PlaylistRepository::getChannels<\/a>"],[0,5,"<a href=\"Repositories\/Playlist\/PlaylistRepository.php.html#110\">App\\Repositories\\Playlist\\PlaylistRepository::updatePlaylist<\/a>"],[0,6,"<a href=\"Repositories\/Playlist\/PlaylistRepository.php.html#139\">App\\Repositories\\Playlist\\PlaylistRepository::chooseVideo<\/a>"],[0,3,"<a href=\"Repositories\/Playlist\/PlaylistRepository.php.html#168\">App\\Repositories\\Playlist\\PlaylistRepository::deletePlaylist<\/a>"],[0,1,"<a href=\"Repositories\/Playlist\/PlaylistRepository.php.html#183\">App\\Repositories\\Playlist\\PlaylistRepository::detach<\/a>"],[0,3,"<a href=\"Repositories\/Playlist\/PlaylistRepository.php.html#191\">App\\Repositories\\Playlist\\PlaylistRepository::changeStatus<\/a>"],[0,1,"<a href=\"Repositories\/Rate\/RateRepository.php.html#10\">App\\Repositories\\Rate\\RateRepository::getModel<\/a>"],[0,1,"<a href=\"Repositories\/Rate\/RateRepository.php.html#15\">App\\Repositories\\Rate\\RateRepository::findRate<\/a>"],[0,2,"<a href=\"Repositories\/Rate\/RateRepository.php.html#25\">App\\Repositories\\Rate\\RateRepository::updateMovie<\/a>"],[0,1,"<a href=\"Repositories\/Rate\/RateRepository.php.html#36\">App\\Repositories\\Rate\\RateRepository::findMovie<\/a>"],[0,1,"<a href=\"Repositories\/Rate\/RateRepository.php.html#43\">App\\Repositories\\Rate\\RateRepository::findMovieRate<\/a>"],[0,1,"<a href=\"Repositories\/Source\/SourceRepository.php.html#12\">App\\Repositories\\Source\\SourceRepository::getModel<\/a>"],[0,2,"<a href=\"Repositories\/Source\/SourceRepository.php.html#17\">App\\Repositories\\Source\\SourceRepository::storeSource<\/a>"],[0,6,"<a href=\"Repositories\/Source\/SourceRepository.php.html#37\">App\\Repositories\\Source\\SourceRepository::sortSource<\/a>"],[0,2,"<a href=\"Repositories\/Source\/SourceRepository.php.html#59\">App\\Repositories\\Source\\SourceRepository::updateSource<\/a>"],[0,3,"<a href=\"Repositories\/Source\/SourceRepository.php.html#79\">App\\Repositories\\Source\\SourceRepository::deleteSource<\/a>"],[0,1,"<a href=\"Repositories\/Type\/TypeRepository.php.html#11\">App\\Repositories\\Type\\TypeRepository::getModel<\/a>"],[0,6,"<a href=\"Repositories\/Type\/TypeRepository.php.html#16\">App\\Repositories\\Type\\TypeRepository::getTypes<\/a>"],[0,1,"<a href=\"Repositories\/Type\/TypeRepository.php.html#38\">App\\Repositories\\Type\\TypeRepository::storeType<\/a>"],[0,2,"<a href=\"Repositories\/Type\/TypeRepository.php.html#48\">App\\Repositories\\Type\\TypeRepository::updateType<\/a>"],[0,2,"<a href=\"Repositories\/Type\/TypeRepository.php.html#62\">App\\Repositories\\Type\\TypeRepository::deleteType<\/a>"],[0,3,"<a href=\"Repositories\/Type\/TypeRepository.php.html#73\">App\\Repositories\\Type\\TypeRepository::getCountOfMovieFromType<\/a>"],[0,1,"<a href=\"Repositories\/User\/UserRepository.php.html#12\">App\\Repositories\\User\\UserRepository::getModel<\/a>"],[0,6,"<a href=\"Repositories\/User\/UserRepository.php.html#17\">App\\Repositories\\User\\UserRepository::getUsers<\/a>"],[0,3,"<a href=\"Repositories\/User\/UserRepository.php.html#48\">App\\Repositories\\User\\UserRepository::changeStatus<\/a>"],[0,1,"<a href=\"Repositories\/User\/UserRepository.php.html#65\">App\\Repositories\\User\\UserRepository::changePassword<\/a>"],[0,1,"<a href=\"Repositories\/User\/UserRepository.php.html#73\">App\\Repositories\\User\\UserRepository::findUserByEmail<\/a>"],[0,1,"<a href=\"Repositories\/User\/UserRepository.php.html#80\">App\\Repositories\\User\\UserRepository::getNewUserInMonth<\/a>"],[0,1,"<a href=\"Repositories\/User\/UserRepository.php.html#89\">App\\Repositories\\User\\UserRepository::storeQueue<\/a>"],[0,1,"<a href=\"Repositories\/Video\/VideoRepository.php.html#14\">App\\Repositories\\Video\\VideoRepository::getModel<\/a>"],[0,8,"<a href=\"Repositories\/Video\/VideoRepository.php.html#19\">App\\Repositories\\Video\\VideoRepository::getVideos<\/a>"],[0,2,"<a href=\"Repositories\/Video\/VideoRepository.php.html#49\">App\\Repositories\\Video\\VideoRepository::getSources<\/a>"],[0,1,"<a href=\"Repositories\/Video\/VideoRepository.php.html#63\">App\\Repositories\\Video\\VideoRepository::getChannels<\/a>"],[0,5,"<a href=\"Repositories\/Video\/VideoRepository.php.html#68\">App\\Repositories\\Video\\VideoRepository::storeVideo<\/a>"],[0,1,"<a href=\"Repositories\/Video\/VideoRepository.php.html#100\">App\\Repositories\\Video\\VideoRepository::storeSource<\/a>"],[0,2,"<a href=\"Repositories\/Video\/VideoRepository.php.html#112\">App\\Repositories\\Video\\VideoRepository::findVideo<\/a>"],[0,4,"<a href=\"Repositories\/Video\/VideoRepository.php.html#124\">App\\Repositories\\Video\\VideoRepository::updateVideo<\/a>"],[0,3,"<a href=\"Repositories\/Video\/VideoRepository.php.html#148\">App\\Repositories\\Video\\VideoRepository::sortChap<\/a>"],[0,3,"<a href=\"Repositories\/Video\/VideoRepository.php.html#159\">App\\Repositories\\Video\\VideoRepository::changeStatus<\/a>"],[0,2,"<a href=\"Repositories\/Video\/VideoRepository.php.html#177\">App\\Repositories\\Video\\VideoRepository::detach<\/a>"],[0,1,"<a href=\"Repositories\/Video\/VideoRepository.php.html#190\">App\\Repositories\\Video\\VideoRepository::findChannel<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

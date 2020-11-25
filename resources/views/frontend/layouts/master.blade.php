@@ -27,5 +27,6 @@
     @include('frontend.layouts.main_footer')
     <!-- end footer -->
     @include('frontend.layouts.footer')
+    @include('sweetalert::alert')
 </body>
 </html>

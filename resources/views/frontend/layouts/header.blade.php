@@ -12,16 +12,16 @@
 <link rel="stylesheet" href="{{ asset('bower_components/bower_film/css/photoswipe.css') }}">
 <link rel="stylesheet" href="{{ asset('bower_components/bower_film/css/default-skin.css') }}">
 <link rel="stylesheet" href="{{ asset('bower_components/bower_film/css/main.css') }}">
+<link rel="stylesheet" href="{{ asset('bower_components/bower_film/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<link rel="stylesheet" href="{{ asset('build/frontend/css/rate.css') }}">
 <!-- Favicons -->
 <link rel="icon" type="image/png" href="{{ asset( 'bower_components/bower_film/icon/favicon-32x32.png') }}" sizes="32x32">
 <link rel="apple-touch-icon" href="{{ asset('bower_components/bower_film/icon/favicon-32x32.png') }}">
 <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('bower_components/bower_film/icon/apple-touch-icon-72x72.png') }}">
 <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('bower_components/bower_film/icon/apple-touch-icon-114x114.png') }}">
 <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('bower_components/bower_film/icon/apple-touch-icon-144x144.png') }}">
-
-
+z
 <meta name="title" content="@yield('title')">
 <meta property="og:title" content="@yield('title')">
 <meta name="author" content="Minh Quang">
-
 <title>@yield('title')</title>

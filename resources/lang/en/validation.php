@@ -146,6 +146,7 @@ return [
     |
     */
 
-    'attributes' => [],
-
+    'attributes' => [
+        'source_key'            => 'source key',
+    ],
 ];

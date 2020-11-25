@@ -20,7 +20,7 @@ class MovieController extends Controller
     {
         //Nominations
         $movieNominations = Movie::select('id', 'name', 'name_origin', 'description', 'card_cover', 'runtime', 'slug', 'rate')
-            ->where('nominations', config('config.nomination'))
+            ->where('nominations', config('config.default_nomination'))
             ->orderBy('rate', 'desc')
             ->take(config('config.take_movie'))
             ->get();
@@ -48,7 +48,7 @@ class MovieController extends Controller
     {
         $films = Movie::select('id', 'name', 'name_origin', 'age', 'description', 'card_cover', 'runtime', 'slug', 'rate', 'quality')
             ->where('genre', $genre)
-            ->orderBy('release_year', 'desc')
+            ->orderBy('updated_at', 'desc')
             ->take(config('config.take_movie'))
             ->get();
 
@@ -79,7 +79,7 @@ class MovieController extends Controller
         }
     }
 
-    public function watchMovie($slug, $sever, $prioritize, $video = null)
+    public function watchMovie($slug, $prioritize, $video = null)
     {
         $movie = Movie::select('id', 'name', 'name_origin', 'age', 'description', 'card_cover', 'runtime', 'slug', 'rate', 'genre', 'country', 'quality', 'release_year')
             ->where('slug', $slug)
@@ -95,26 +95,31 @@ class MovieController extends Controller
 
         if ($movie['genre'] == config('config.genre_of_movie')) {
             //Trường hợp phim lẻ
-            if ($sever == config('config.default_server') && $prioritize == config('config.default_prioritize')) {
-                $source = $movie->sources()
-                    ->select('id', 'source_key', 'video_id', 'prioritize', 'status', 'movie_id', 'channel_id')
+            $video = $movie->videos()
+                ->select('videos.id', 'tags')
+                ->first();
+            if ($video == null) {
+                return abort(404);
+            }
+            if ($prioritize == config('config.default_prioritize')) {
+                $source = $video->sources()
+                    ->select('id', 'source_key', 'video_id', 'prioritize', 'status', 'channel_id')
                     ->where([
                         ['status', config('config.status_true')],
                         ['prioritize', $prioritize],
                     ])
                     ->first();
             } else {
-                $source = Source::select('sources.id', 'source_key', 'video_id', 'prioritize', 'sources.status', 'movie_id', 'channel_id')
-                    ->join('movies', function ($join) {
-                        $join->on('sources.movie_id', '=', 'movies.id');
+                $source = Source::select('sources.id', 'source_key', 'video_id', 'prioritize', 'sources.status', 'channel_id')
+                    ->join('videos', function ($join) {
+                        $join->on('sources.video_id', '=', 'videos.id');
                     })
                     ->join('channels', function ($join) {
                         $join->on('sources.channel_id', '=', 'channels.id');
                     })
                     ->where([
-                        ['channels.order', $sever],
                         ['sources.status', config('config.status_true')],
-                        ['movies.id', $movie->id],
+                        ['videos.id', $video->id],
                         ['prioritize', $prioritize],
                     ])
                     ->first();
@@ -131,9 +136,9 @@ class MovieController extends Controller
                 ->first()
                 ->toArray();
 
-            $backups = Channel::select('channels.id', 'channels.title', 'channels.status', 'channel_type', 'order', 'sources.prioritize')
-                ->join('sources', function ($join) {
-                    $join->on('channels.id', '=', 'channel_id');
+            $backups = Source::select('channels.id', 'channels.title', 'channels.status', 'channel_type', 'order', 'sources.prioritize')
+                ->join('channels', function ($join) {
+                    $join->on('channel_id', '=', 'channels.id');
                 })
                 ->join('videos', function ($join) {
                     $join->on('sources.video_id', '=', 'videos.id');
@@ -142,12 +147,11 @@ class MovieController extends Controller
                     ['channels.status', config('config.status_true')],
                     ['videos.id', $source->video_id],
                 ])
+                ->orderBy('sources.prioritize', 'asc')
                 ->get()
                 ->toArray();
 
-            $video = $movie->videos()
-                ->select('videos.id', 'tags')
-                ->first();
+
             if ($video == null) {
                 return abort(404);
             }
@@ -166,17 +170,20 @@ class MovieController extends Controller
         } else {
             //Trường hợp phim bộ
             if ($video == null) {
-                $chap = Video::select('videos.id', 'videos.title', 'videos.status', 'tags', 'slug', 'videos.movie_id', 'playlist_id', 'chap')
+                $playlist = $movie->playlists()
                     ->where([
-                        ['videos.movie_id', $movie['id']],
-                        ['chap', config('config.default_chap')],
-                        ['videos.status', config('config.status_true')],
+                        ['movie_id', $movie['id']],
                         ['playlists.status', config('config.status_true')],
                     ])
-                    ->join('playlists', function ($join) {
-                        $join->on('playlist_id', '=', 'playlists.id');
-                    })
-                    ->where('order', config('config.default_order'))
+                    ->orderBy('order', 'asc')
+                    ->first();
+                if ($playlist == null) {
+                    return abort(404);
+                }
+                $chap = $playlist->videos()
+                    ->select('id', 'title', 'status', 'tags', 'slug', 'movie_id', 'playlist_id', 'chap')
+                    ->where('status', config('config.status_true'))
+                    ->orderBy('chap', 'asc')
                     ->first();
             } else {
                 $chap = Video::select('id', 'title', 'status', 'slug', 'movie_id', 'playlist_id', 'chap')
@@ -190,7 +197,7 @@ class MovieController extends Controller
                  return abort(404);
             }
 
-            if ($sever == config('config.default_server') && $prioritize == config('config.default_prioritize')) {
+            if ($prioritize == config('config.default_prioritize')) {
                 $source = Source::select('id', 'source_key', 'video_id', 'status', 'prioritize', 'status', 'movie_id', 'channel_id', 'video_id')
                     ->where([
                         ['prioritize', $prioritize],
@@ -204,7 +211,7 @@ class MovieController extends Controller
                         $join->on('sources.channel_id', '=', 'channels.id');
                     })
                     ->where([
-                        ['channels.order', $sever],
+                        ['prioritize', $prioritize],
                         ['sources.status', config('config.status_true')],
                         ['video_id', $chap->id],
                     ])
@@ -219,15 +226,16 @@ class MovieController extends Controller
                 ->first()
                 ->toArray();
 
-            $backups = Channel::select('channels.id', 'channels.title', 'channel_type', 'order', 'sources.prioritize')
-                ->join('sources', function ($join) {
-                    $join->on('channels.id', '=', 'channel_id');
+            $backups = Source::select('channels.id', 'channels.title', 'channel_type', 'sources.prioritize')
+                ->join('channels', function ($join) {
+                    $join->on('channel_id', '=', 'channels.id');
                 })
                 ->join('videos', function ($join) {
                     $join->on('sources.video_id', '=', 'videos.id');
                 })
                 ->where('channels.status', config('config.status_true'))
                 ->where('videos.id', $chap['id'])
+                ->orderBy('sources.prioritize', 'asc')
                 ->get()
                 ->toArray();
 
@@ -325,7 +333,7 @@ class MovieController extends Controller
 
     public function getMovieFromOption($key, $slug)
     {
-        $movies = Movie::select('id', 'name', 'age', 'card_cover', 'runtime', 'slug', 'rate', 'genre', 'country', 'quality', 'release_year')
+        $movies = Movie::select('id', 'name', 'name_origin', 'age', 'card_cover', 'runtime', 'slug', 'rate', 'genre', 'country', 'quality', 'release_year')
                 ->where($key, $slug)
                 ->paginate(config('config.pagination_movie'));
         foreach ($movies as $video) {

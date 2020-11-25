@@ -11,6 +11,7 @@ class Movie extends Model
 
     protected $fillable = [
         'name',
+        'name_origin',
         'description',
         'nominations',
         'card_cover',
