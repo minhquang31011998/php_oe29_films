@@ -106,7 +106,7 @@ $(document).ready(function () {
     var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
     var slug = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
     var sort = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
-    var myTable = $('#movies-table').DataTable({
+    $('#movies-table').DataTable({
       processing: true,
       serverSide: true,
       searching: false,

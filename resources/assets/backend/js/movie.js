@@ -6,7 +6,7 @@ $(document).ready(function(){
     };
 
     function dataTable(name = '', slug = '', sort = '') {
-        var myTable = $('#movies-table').DataTable({
+        $('#movies-table').DataTable({
             processing: true,
             serverSide: true,
             searching: false,
